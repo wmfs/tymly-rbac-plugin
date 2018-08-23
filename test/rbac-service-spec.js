@@ -43,7 +43,7 @@ describe('RBAC service tests', function () {
   describe('checkRoleAuthorization', () => {
     it('Should authorize something $everyone can do', function () {
       expect(
-        rbac.rbac.checkRoleAuthorization(
+        rbac.checkRoleAuthorization(
           null, // userId
           null, // ctx
           [], // roles
@@ -55,7 +55,7 @@ describe('RBAC service tests', function () {
 
     it('Should authorize something an $authenticated user can do', function () {
       expect(
-        rbac.rbac.checkRoleAuthorization(
+        rbac.checkRoleAuthorization(
           'john.smith', // userId
           null, // ctx
           [], // roles
@@ -67,7 +67,7 @@ describe('RBAC service tests', function () {
 
     it('Should deny something if user is not authenticated, when they need to be', function () {
       expect(
-        rbac.rbac.checkRoleAuthorization(
+        rbac.checkRoleAuthorization(
           undefined, // userId
           null, // ctx
           [], // roles
@@ -79,7 +79,7 @@ describe('RBAC service tests', function () {
 
     it('Should authorize an $owner', function () {
       expect(
-        rbac.rbac.checkRoleAuthorization(
+        rbac.checkRoleAuthorization(
           'molly', // userId
           {userId: 'molly'}, // ctx
           [], // roles
@@ -91,7 +91,7 @@ describe('RBAC service tests', function () {
 
     it('Should authorize something directly allowed via a role', function () {
       expect(
-        rbac.rbac.checkRoleAuthorization(
+        rbac.checkRoleAuthorization(
           'john.doe', // userId
           null, // ctx
           ['tymlyTest_developer'], // roles
@@ -103,7 +103,7 @@ describe('RBAC service tests', function () {
 
     it('Should deny if no matching role', function () {
       expect(
-        rbac.rbac.checkRoleAuthorization(
+        rbac.checkRoleAuthorization(
           'john.doe', // userId
           null, // ctx
           ['spaceCadet', 'IRRELEVANT!'], // roles
@@ -115,7 +115,7 @@ describe('RBAC service tests', function () {
 
     it('Should deny if no appropriate role', function () {
       expect(
-        rbac.rbac.checkRoleAuthorization(
+        rbac.checkRoleAuthorization(
           null, // userId
           null, // ctx
           ['tymly_developer'], // roles
@@ -127,7 +127,7 @@ describe('RBAC service tests', function () {
 
     it('Should authorize something because of role inheritance', function () {
       expect(
-        rbac.rbac.checkRoleAuthorization(
+        rbac.checkRoleAuthorization(
           null, // userId
           null, // ctx
           ['tymlyTest_boss'], // roles
@@ -139,7 +139,7 @@ describe('RBAC service tests', function () {
 
     it('Should authorize something with resource and action wildcards', function () {
       expect(
-        rbac.rbac.checkRoleAuthorization(
+        rbac.checkRoleAuthorization(
           'molly', // userId
           null, // ctx
           ['tymlyTest_tymlyTestAdmin'], // roles
@@ -151,7 +151,7 @@ describe('RBAC service tests', function () {
 
     it('Should authorize something with just an action wildcard', function () {
       expect(
-        rbac.rbac.checkRoleAuthorization(
+        rbac.checkRoleAuthorization(
           'molly', // userId
           null, // ctx
           ['tymlyTest_tymlyTestReadOnly'], // roles
@@ -163,7 +163,7 @@ describe('RBAC service tests', function () {
 
     it('Should fail to authorize if irrelevant action wildcard', function () {
       expect(
-        rbac.rbac.checkRoleAuthorization(
+        rbac.checkRoleAuthorization(
           'molly', // userId
           null, // ctx
           ['tymlyTest_tymlyTestReadOnly'], // roles
@@ -174,7 +174,7 @@ describe('RBAC service tests', function () {
     })
   })
 
-  describe('getUserRoles', () => {
+  describe('listUserRoles', () => {
     const allUserRoles = [
       [
         'mommy',
@@ -211,11 +211,11 @@ describe('RBAC service tests', function () {
 
     for (const [user, , expectedRoles] of allUserRoles) {
       it(`verify ${user} roles via storage`, async () => {
-        const roles = await rbac.getUserRoles(user)
+        const roles = await rbac.listUserRoles(user)
         expect(roles).to.eql(expectedRoles)
       })
       it(`verify ${user} roles via cache`, async () => {
-        const roles = await rbac.getUserRoles(user)
+        const roles = await rbac.listUserRoles(user)
         expect(roles).to.eql(expectedRoles)
       })
     } // for ...

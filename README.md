@@ -18,19 +18,23 @@
 $ npm install tymly-rbac-plugin --save
 ```
 
-## <a name="test"></a>Testing
-
-Before running the tests, you'll need a test PostgreSQL database available and set a `PG_CONNECTION_STRING` environment variable to point to it, for example:
-
-```PG_CONNECTION_STRING=postgres://postgres:postgres@localhost:5432/my_test_db```
-
-
-Once the environment variables have been set, you can run the tests like this:
-
-```bash
-$ npm test
+Add to your list of Tymly plugin's using 
+```
+tymly.boot({
+  blueprintPaths: [
+    ...
+  ],
+  pluginPaths: [
+    path.resolve('@wmfs/tymly-rbac-plugin'),
+    ...
+  ]
+},
+...
 ```
 
+The RBAC service will initialise itself from state machine _restrictions_.  Users can be added to groups using the ensureUserRole methods, or by populating the role and role-membership tables.  
+
+Tymly's Statebox service is RBAC aware, and so will start using this service to control access to state machines. 
 
 ## <a name="license"></a>License
 

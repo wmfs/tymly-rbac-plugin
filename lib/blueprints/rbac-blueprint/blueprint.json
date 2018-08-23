@@ -1,0 +1,15 @@
+{
+
+  "namespace": "tymly",
+  "name": "rbac",
+  "version": "1.0",
+
+  "label": "RBAC Blueprint",
+  "author": "Tim Needham",
+
+  "organisation": "Tymly",
+  "description": "Blueprint describing tables used by the RBAC plugin",
+
+  "categories": ["tymly", "rbac"]
+
+}
