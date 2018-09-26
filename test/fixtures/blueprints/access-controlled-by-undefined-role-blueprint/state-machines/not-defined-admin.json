@@ -1,0 +1,19 @@
+{
+  "Comment": "Blueprint to do a thing",
+  "version": "1.0",
+  "StartAt": "Success",
+  "States": {
+    "Success": {
+      "Type": "Succeed",
+      "End": true
+    }
+  },
+  "restrictions": [
+    {
+      "roleId": "not-defined-admin",
+      "allows": [
+        "*"
+      ]
+    }
+  ]
+}

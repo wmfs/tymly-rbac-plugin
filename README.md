@@ -34,7 +34,7 @@ tymly.boot({
 
 The RBAC service will initialise itself from state machine _restrictions_.  Users can be added to groups using the ensureUserRole methods, or by populating the role and role-membership tables.  
 
-Tymly's Statebox service is RBAC aware, and so will start using this service to control access to state machines. 
+Tymly's Statebox service is RBAC aware and so, if this plugin is loaded, will using this service to control access to state machines. 
 
 ## <a name="license"></a>License
 

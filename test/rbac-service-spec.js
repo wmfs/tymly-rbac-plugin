@@ -13,7 +13,7 @@ describe('RBAC service tests', function () {
   let rbac
 
   describe('setup', () => {
-    it('should get the ACL service for testing purposes', function (done) {
+    it('fire up Tymly', function (done) {
       tymly.boot(
         {
           pluginPaths: [
@@ -40,133 +40,141 @@ describe('RBAC service tests', function () {
     })
   })
 
-  describe('checkRoleAuthorization', () => {
-    it('Should authorize something $everyone can do', function () {
+  describe('checkRoleAuthorization', async () => {
+    it('set up roles', async () => {
+      await rbac.ensureUserRoles('boss', 'tymlyTest_boss')
+      await rbac.ensureUserRoles('test_dev', 'tymlyTest_developer')
+      await rbac.ensureUserRoles('spaceman', ['space_cadet', 'IRRELEVANT'])
+      await rbac.ensureUserRoles('test_admin', 'tymlyTest_tymlyTestAdmin')
+      await rbac.ensureUserRoles('reader', 'tymlyTest_tymlyTestReadOnly')
+    })
+
+    it('authorize boss to purge site', async () => {
       expect(
-        rbac.checkRoleAuthorization(
+        await rbac.checkAuthorization(
+          'boss', // userId
+          null, // ctx
+          'stateMachine', // resourceType
+          'tymlyTest_purgeSite_1_0', // resourceName
+          'create' // action
+        )).to.equal(true)
+    })
+
+    it('authorize something $everyone can do', async () => {
+      expect(
+        await rbac.checkAuthorization(
           null, // userId
           null, // ctx
-          [], // roles
           'stateMachine', // resourceType
           'tymlyTest_readPost_1_0', // resourceName
           'create' // action
         )).to.equal(true)
     })
 
-    it('Should authorize something an $authenticated user can do', function () {
+    it('authorize something an $authenticated user can do', async () => {
       expect(
-        rbac.checkRoleAuthorization(
+        await rbac.checkAuthorization(
           'john.smith', // userId
           null, // ctx
-          [], // roles
           'stateMachine', // resourceType
           'tymlyTest_createPost_1_0', // resourceName
           'create' // action
         )).to.equal(true)
     })
 
-    it('Should deny something if user is not authenticated, when they need to be', function () {
+    it('deny something if user is not authenticated, when they need to be', async () => {
       expect(
-        rbac.checkRoleAuthorization(
+        await rbac.checkAuthorization(
           undefined, // userId
           null, // ctx
-          [], // roles
           'stateMachine', // resourceType
           'tymlyTest_createPost_1_0', // resourceName
           'create' // action
         )).to.equal(false)
     })
 
-    it('Should authorize an $owner', function () {
+    it('authorize an $owner', async () => {
       expect(
-        rbac.checkRoleAuthorization(
+        await rbac.checkAuthorization(
           'molly', // userId
           { userId: 'molly' }, // ctx
-          [], // roles
           'stateMachine', // resourceType
           'tymlyTest_updatePost_1_0', // resourceName
           'create' // action
         )).to.equal(true)
     })
 
-    it('Should authorize something directly allowed via a role', function () {
+    it('authorize something directly allowed via a role', async () => {
       expect(
-        rbac.checkRoleAuthorization(
-          'john.doe', // userId
+        await rbac.checkAuthorization(
+          'test_dev', // userId
           null, // ctx
-          ['tymlyTest_developer'], // roles
           'stateMachine', // resourceType
           'tymlyTest_createPost_1_0', // resourceName
           'cancel' // action
         )).to.equal(true)
     })
 
-    it('Should deny if no matching role', function () {
+    it('deny if no matching role', async () => {
       expect(
-        rbac.checkRoleAuthorization(
-          'john.doe', // userId
+        await rbac.checkAuthorization(
+          'spaceman', // userId
           null, // ctx
-          ['spaceCadet', 'IRRELEVANT!'], // roles
           'stateMachine', // resourceType
           'tymlyTest_createPost_1_0', // resourceName
           'cancel' // action
         )).to.equal(false)
     })
 
-    it('Should deny if no appropriate role', function () {
+    it('deny if no appropriate role', async () => {
       expect(
-        rbac.checkRoleAuthorization(
-          null, // userId
+        await rbac.checkAuthorization(
+          'test_dev', // userId
           null, // ctx
-          ['tymly_developer'], // roles
           'stateMachine', // resourceType
           'tymlyTest_deletePost_1_0', // resourceName
           'create' // action
         )).to.equal(false)
     })
 
-    it('Should authorize something because of role inheritance', function () {
+    it('authorize something because of role inheritance', async () => {
       expect(
-        rbac.checkRoleAuthorization(
-          null, // userId
+        await rbac.checkAuthorization(
+          'boss', // userId
           null, // ctx
-          ['tymlyTest_boss'], // roles
           'stateMachine', // resourceType
           'tymlyTest_createPost_1_0', // resourceName
           'cancel' // action
         )).to.equal(true)
     })
 
-    it('Should authorize something with resource and action wildcards', function () {
+    it('authorize something with resource and action wildcards', async () => {
       expect(
-        rbac.checkRoleAuthorization(
-          'molly', // userId
+        await rbac.checkAuthorization(
+          'test_admin', // userId
           null, // ctx
-          ['tymlyTest_tymlyTestAdmin'], // roles
           'stateMachine', // resourceType
           'tymlyTest_purgeSite_1_0', // resourceName
           'create' // action
         )).to.equal(true)
     })
 
-    it('Should authorize something with just an action wildcard', function () {
+    it('authorize something with just an action wildcard', async () => {
       expect(
-        rbac.checkRoleAuthorization(
-          'molly', // userId
+        await rbac.checkAuthorization(
+          'reader', // userId
           null, // ctx
-          ['tymlyTest_tymlyTestReadOnly'], // roles
           'stateMachine', // resourceType
           'tymlyTest_purgeSite_1_0', // resourceName
           'get' // action
         )).to.equal(true)
     })
 
-    it('Should fail to authorize if irrelevant action wildcard', function () {
+    it('fail to authorize if irrelevant action wildcard', async () => {
       expect(
-        rbac.checkRoleAuthorization(
-          'molly', // userId
+        await rbac.checkAuthorization(
+          'reader', // userId
           null, // ctx
-          ['tymlyTest_tymlyTestReadOnly'], // roles
           'stateMachine', // resourceType
           'tymlyTest_purgeSite_1_0', // resourceName
           'create' // action
@@ -175,6 +183,10 @@ describe('RBAC service tests', function () {
   })
 
   describe('listUserRoles', () => {
+    it('reset cache', function () {
+      rbac.resetCache()
+    })
+
     const allUserRoles = [
       [
         'mommy',
@@ -222,11 +234,7 @@ describe('RBAC service tests', function () {
   })
 
   describe('shutdown', () => {
-    it('should reset cache', function () {
-      rbac.resetCache()
-    })
-
-    it('should shutdown Tymly', async () => {
+    it('shutdown Tymly', async () => {
       await tymlyService.shutdown()
     })
   })
