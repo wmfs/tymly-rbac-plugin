@@ -36,6 +36,16 @@ The RBAC service will initialise itself from state machine _restrictions_.  User
 
 Tymly's Statebox service is RBAC aware and so, if this plugin is loaded, will using this service to control access to state machines. 
 
+## Methods
+
+`listUserRoles(userId)`
+
+`checkAuthorization(userId, ctx, resourceType, resourceName, action)`
+
+`ensureUserRoles(userId, roleIds)`
+
+`refreshRbacIndex()`
+
 ## <a name="license"></a>License
 
 [MIT](https://github.com/wmfs/tymly/blob/master/LICENSE)
