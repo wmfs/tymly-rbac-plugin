@@ -1,6 +1,8 @@
 /* eslint-env mocha */
 
-const expect = require('chai').expect
+const chai = require('chai')
+chai.use(require('dirty-chai'))
+const expect = chai.expect
 const tymly = require('@wmfs/tymly')
 const path = require('path')
 
@@ -33,6 +35,8 @@ const allUserRoles = [
   ]
 ]
 
+const allRoles = ['tymlyTest_boss', 'tymlyTest_teamLeader', 'tymlyTest_developer', 'tymlyTest_tymlyTestAdmin', 'tymlyTest_tymlyTestReadOnly']
+
 let tymlyService
 let rbac
 
@@ -45,7 +49,7 @@ const userRoles = () => describe('set up user roles', () => {
 })
 
 const roleMembership = () => describe('set up user roles', () => {
-  for (const role of ['tymlyTest_boss', 'tymlyTest_teamLeader', 'tymlyTest_developer', 'tymlyTest_tymlyTestAdmin', 'tymlyTest_tymlyTestReadOnly']) {
+  for (const role of allRoles) {
     const members = allUserRoles.filter(([user, memberOf]) => memberOf && memberOf.includes(role)).map(([user]) => user)
 
     it(`ensure ${role} members`, async () => {
@@ -101,7 +105,7 @@ for (const [label, setupFn] of [['user roles', userRoles], ['role membership', r
     })
 
     describe('check role memberships', () => {
-      for (const role of ['tymlyTest_boss', 'tymlyTest_teamLeader', 'tymlyTest_developer', 'tymlyTest_tymlyTestAdmin', 'non-existent-role']) {
+      for (const role of [...allRoles, 'non-existent-role']) {
         const expectedMembers = allUserRoles.filter(([user, , roles]) => roles.includes(role)).map(([user]) => user)
         it(`verify ${role} members`, async () => {
           const members = await rbac.listRoleUsers(role)
@@ -112,6 +116,34 @@ for (const [label, setupFn] of [['user roles', userRoles], ['role membership', r
           expect(members).to.have.members(expectedMembers)
         })
       }
+
+      it ('list roles', async () => {
+        const roles = await rbac.listRoles()
+        expect(roles).to.have.members(allRoles)
+      })
+
+      it ('describe tymlyTest_boss', async () => {
+        const role = await rbac.describeRole('tymlyTest_boss')
+        expect(role).to.include({
+          'description': 'Like a Boss!',
+          'label': 'Boss',
+          'roleId': 'tymlyTest_boss'
+        })
+      })
+
+      it ('describe $everyone', async () => {
+        const role = await rbac.describeRole('$everyone')
+        expect(role).to.eql({
+          'description': 'Built in',
+          'label': '$everyone',
+          'roleId': '$everyone'
+        })
+      })
+
+      it ('describe nobodyWears_trilbys', async () => {
+        const role = await rbac.describeRole('nobodyWears_trilbys')
+        expect(role).to.be.undefined()
+      })
     })
 
     describe('shutdown', () => {
@@ -150,7 +182,7 @@ describe('built in roles', () => {
     })
   })
 
-  describe('can \'t add members to $owner', () => {
+  describe('can \'t add members to a built in', () => {
     it ('add members to $owner', async () => {
       await rbac.ensureUserRoles('bigbossman', ['$owner'])
 
