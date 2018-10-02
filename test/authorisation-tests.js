@@ -4,9 +4,7 @@ const expect = require('chai').expect
 const tymly = require('@wmfs/tymly')
 const path = require('path')
 
-describe('RBAC service tests', function () {
-  // TODO: MORE! MORE! MORE!
-
+describe('Authorisation tests', function () {
   this.timeout(process.env.TIMEOUT || 5000)
 
   let tymlyService
@@ -22,7 +20,6 @@ describe('RBAC service tests', function () {
           blueprintPaths: [
             path.resolve(__dirname, './fixtures/blueprints/website-blueprint')
           ],
-
           config: {
             caches: {
               userMemberships: { max: 500 }
@@ -180,57 +177,6 @@ describe('RBAC service tests', function () {
           'create' // action
         )).to.equal(false)
     })
-  })
-
-  describe('listUserRoles', () => {
-    it('reset cache', function () {
-      rbac.resetCache()
-    })
-
-    const allUserRoles = [
-      [
-        'mommy',
-        ['tymlyTest_boss'],
-        ['tymlyTest_boss', 'tymlyTest_teamLeader', 'tymlyTest_developer', '$everyone']
-      ],
-      [
-        'daddy',
-        ['tymlyTest_tymlyTestAdmin'],
-        ['tymlyTest_tymlyTestAdmin', '$everyone']
-      ],
-      [
-        'lucy',
-        ['tymlyTest_tymlyTestReadOnly', 'tymlyTest_teamLeader'],
-        ['tymlyTest_tymlyTestReadOnly', '$everyone', 'tymlyTest_teamLeader', 'tymlyTest_developer']
-      ],
-      [
-        'molly',
-        ['tymlyTest_developer'],
-        ['tymlyTest_developer', '$everyone']
-      ],
-      [
-        'just-some-dude',
-        null,
-        ['$everyone']
-      ]
-    ]
-
-    for (const [user, roles] of allUserRoles) {
-      it(`ensure ${user} roles`, async () => {
-        await rbac.ensureUserRoles(user, roles)
-      })
-    }
-
-    for (const [user, , expectedRoles] of allUserRoles) {
-      it(`verify ${user} roles via storage`, async () => {
-        const roles = await rbac.listUserRoles(user)
-        expect(roles).to.eql(expectedRoles)
-      })
-      it(`verify ${user} roles via cache`, async () => {
-        const roles = await rbac.listUserRoles(user)
-        expect(roles).to.eql(expectedRoles)
-      })
-    } // for ...
   })
 
   describe('shutdown', () => {
