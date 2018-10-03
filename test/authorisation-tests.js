@@ -9,6 +9,7 @@ describe('Authorisation tests', function () {
 
   let tymlyService
   let rbac
+  let rbacAdmin
 
   describe('setup', () => {
     it('fire up Tymly', function (done) {
@@ -31,6 +32,7 @@ describe('Authorisation tests', function () {
           tymlyService = tymlyServices.tymly
           rbac = tymlyServices.rbac
           rbac.debug()
+          rbacAdmin = tymlyServices.rbacAdmin
           done()
         }
       )
@@ -39,11 +41,11 @@ describe('Authorisation tests', function () {
 
   describe('checkRoleAuthorization', async () => {
     it('set up roles', async () => {
-      await rbac.ensureUserRoles('boss', 'tymlyTest_boss')
-      await rbac.ensureUserRoles('test_dev', 'tymlyTest_developer')
-      await rbac.ensureUserRoles('spaceman', ['space_cadet', 'IRRELEVANT'])
-      await rbac.ensureUserRoles('test_admin', 'tymlyTest_tymlyTestAdmin')
-      await rbac.ensureUserRoles('reader', 'tymlyTest_tymlyTestReadOnly')
+      await rbacAdmin.ensureUserRoles('boss', 'tymlyTest_boss')
+      await rbacAdmin.ensureUserRoles('test_dev', 'tymlyTest_developer')
+      await rbacAdmin.ensureUserRoles('spaceman', ['space_cadet', 'IRRELEVANT'])
+      await rbacAdmin.ensureUserRoles('test_admin', 'tymlyTest_tymlyTestAdmin')
+      await rbacAdmin.ensureUserRoles('reader', 'tymlyTest_tymlyTestReadOnly')
     })
 
     it('authorize boss to purge site', async () => {

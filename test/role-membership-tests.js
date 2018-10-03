@@ -39,11 +39,12 @@ const allRoles = ['tymlyTest_boss', 'tymlyTest_teamLeader', 'tymlyTest_developer
 
 let tymlyService
 let rbac
+let rbacAdmin
 
 const userRoles = () => describe('set up user roles', () => {
   for (const [user, roles] of allUserRoles) {
     it(`ensure ${user} roles`, async () => {
-      await rbac.ensureUserRoles(user, roles)
+      await rbacAdmin.ensureUserRoles(user, roles)
     })
   }
 })
@@ -53,7 +54,7 @@ const roleMembership = () => describe('set up user roles', () => {
     const members = allUserRoles.filter(([user, memberOf]) => memberOf && memberOf.includes(role)).map(([user]) => user)
 
     it(`ensure ${role} members`, async () => {
-      await rbac.ensureRoleMembers(role, members)
+      await rbacAdmin.ensureRoleMembers(role, members)
     })
   }
 })
@@ -83,6 +84,7 @@ for (const [label, setupFn] of [['user roles', userRoles], ['role membership', r
             tymlyService = tymlyServices.tymly
             rbac = tymlyServices.rbac
             rbac.debug()
+            rbacAdmin = tymlyServices.rbacAdmin
             done()
           }
         )
@@ -108,22 +110,18 @@ for (const [label, setupFn] of [['user roles', userRoles], ['role membership', r
       for (const role of [...allRoles, 'non-existent-role']) {
         const expectedMembers = allUserRoles.filter(([user, , roles]) => roles.includes(role)).map(([user]) => user)
         it(`verify ${role} members`, async () => {
-          const members = await rbac.listRoleUsers(role)
-          expect(members).to.have.members(expectedMembers)
-        })
-        it(`verify ${role} members are cached`, async () => {
-          const members = rbac.roleMembershipsCache.get(role)
+          const members = await rbacAdmin.listRoleUsers(role)
           expect(members).to.have.members(expectedMembers)
         })
       }
 
       it ('list roles', async () => {
-        const roles = await rbac.listRoles()
+        const roles = await rbacAdmin.listRoles()
         expect(roles).to.have.members(allRoles)
       })
 
       it ('describe tymlyTest_boss', async () => {
-        const role = await rbac.describeRole('tymlyTest_boss')
+        const role = await rbacAdmin.describeRole('tymlyTest_boss')
         expect(role).to.include({
           'description': 'Like a Boss!',
           'label': 'Boss',
@@ -132,7 +130,7 @@ for (const [label, setupFn] of [['user roles', userRoles], ['role membership', r
       })
 
       it ('describe $everyone', async () => {
-        const role = await rbac.describeRole('$everyone')
+        const role = await rbacAdmin.describeRole('$everyone')
         expect(role).to.eql({
           'description': 'Built in',
           'label': '$everyone',
@@ -141,7 +139,7 @@ for (const [label, setupFn] of [['user roles', userRoles], ['role membership', r
       })
 
       it ('describe nobodyWears_trilbys', async () => {
-        const role = await rbac.describeRole('nobodyWears_trilbys')
+        const role = await rbacAdmin.describeRole('nobodyWears_trilbys')
         expect(role).to.be.undefined()
       })
     })
@@ -184,16 +182,16 @@ describe('built in roles', () => {
 
   describe('can \'t add members to a built in', () => {
     it ('add members to $owner', async () => {
-      await rbac.ensureUserRoles('bigbossman', ['$owner'])
+      await rbacAdmin.ensureUserRoles('bigbossman', ['$owner'])
 
-      await rbac.ensureRoleMembers('$owner', ['james', 'giant peach'])
+      await rbacAdmin.ensureRoleMembers('$owner', ['james', 'giant peach'])
     })
 
     it ('but has no effect', async () => {
-      const members = await rbac.listRoleUsers('$owner')
+      const members = await rbacAdmin.listRoleUsers('$owner')
       expect(members).to.eql([])
 
-      const roles = await rbac.listUserRoles('bigbossman')
+      const roles = await rbacAdmin.listUserRoles('bigbossman')
       expect(roles).to.eql(['$everyone'])
     })
   })

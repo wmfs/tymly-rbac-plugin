@@ -95,6 +95,7 @@ describe('Statebox service RBAC authorisation', function () {
   let tymlyService
   let statebox
   let rbac
+  let rbacAdmin
 
   describe('setup', () => {
     it('boot Tymly', function (done) {
@@ -114,6 +115,7 @@ describe('Statebox service RBAC authorisation', function () {
           tymlyService = tymlyServices.tymly
           statebox = tymlyServices.statebox
           rbac = tymlyServices.rbac
+          rbacAdmin = tymlyServices.rbacAdmin
 
           rbac.debug()
 
@@ -123,8 +125,8 @@ describe('Statebox service RBAC authorisation', function () {
     })
 
     it('grant \'admin\' permission to \'administrator\'', async () => {
-      await rbac.ensureUserRoles('administrator', ['admin'])
-      await rbac.refreshRbacIndex()
+      await rbacAdmin.ensureUserRoles('administrator', ['admin'])
+      await rbacAdmin.refreshRbacIndex()
 
       rbac.debug()
     })
