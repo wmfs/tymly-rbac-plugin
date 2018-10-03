@@ -6,7 +6,6 @@ const expect = chai.expect
 const tymly = require('@wmfs/tymly')
 const path = require('path')
 
-
 const allUserRoles = [
   [
     'mommy',
@@ -75,7 +74,7 @@ for (const [label, setupFn] of [['user roles', userRoles], ['role membership', r
             ],
             config: {
               caches: {
-                userMemberships: {max: 500}
+                userMemberships: { max: 500 }
               }
             }
           },
@@ -115,12 +114,12 @@ for (const [label, setupFn] of [['user roles', userRoles], ['role membership', r
         })
       }
 
-      it ('list roles', async () => {
+      it('list roles', async () => {
         const roles = await rbacAdmin.listRoles()
         expect(roles).to.have.members(allRoles)
       })
 
-      it ('describe tymlyTest_boss', async () => {
+      it('describe tymlyTest_boss', async () => {
         const role = await rbacAdmin.describeRole('tymlyTest_boss')
         expect(role).to.include({
           'description': 'Like a Boss!',
@@ -129,7 +128,7 @@ for (const [label, setupFn] of [['user roles', userRoles], ['role membership', r
         })
       })
 
-      it ('describe $everyone', async () => {
+      it('describe $everyone', async () => {
         const role = await rbacAdmin.describeRole('$everyone')
         expect(role).to.eql({
           'description': 'Built in',
@@ -138,7 +137,7 @@ for (const [label, setupFn] of [['user roles', userRoles], ['role membership', r
         })
       })
 
-      it ('describe nobodyWears_trilbys', async () => {
+      it('describe nobodyWears_trilbys', async () => {
         const role = await rbacAdmin.describeRole('nobodyWears_trilbys')
         expect(role).to.be.undefined()
       })
@@ -165,7 +164,7 @@ describe('built in roles', () => {
           ],
           config: {
             caches: {
-              userMemberships: {max: 500}
+              userMemberships: { max: 500 }
             }
           }
         },
@@ -181,13 +180,13 @@ describe('built in roles', () => {
   })
 
   describe('can \'t add members to a built in', () => {
-    it ('add members to $owner', async () => {
+    it('add members to $owner', async () => {
       await rbacAdmin.ensureUserRoles('bigbossman', ['$owner'])
 
       await rbacAdmin.ensureRoleMembers('$owner', ['james', 'giant peach'])
     })
 
-    it ('but has no effect', async () => {
+    it('but has no effect', async () => {
       const members = await rbacAdmin.listRoleUsers('$owner')
       expect(members).to.eql([])
 
