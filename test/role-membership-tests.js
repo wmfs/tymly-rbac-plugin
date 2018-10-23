@@ -157,7 +157,8 @@ describe('built in roles', () => {
       tymly.boot(
         {
           pluginPaths: [
-            path.resolve(__dirname, '../')
+            path.resolve(__dirname, '../'),
+            require.resolve('@wmfs/tymly-pg-plugin')
           ],
           blueprintPaths: [
             path.resolve(__dirname, './fixtures/blueprints/website-blueprint')
