@@ -48,7 +48,7 @@ const userRoles = () => describe('set up user roles', () => {
   }
 })
 
-const roleMembership = () => describe('set up user roles', () => {
+const roleMembership = () => describe('set up role memberships', () => {
   for (const role of allRoles) {
     const members = allUserRoles.filter(([user, memberOf]) => memberOf && memberOf.includes(role)).map(([user]) => user)
 
@@ -125,7 +125,7 @@ for (const [label, setupFn] of [['user roles', userRoles], ['role membership', r
           description: 'Like a Boss!',
           label: 'Boss',
           roleId: 'tymlyTest_boss',
-          inherits: ['tymlyTest_boss', 'tymlyTest_teamLeader', 'tymlyTest_developer', '$everyone']
+          inherits: ['tymlyTest_teamLeader']
         })
       })
 
