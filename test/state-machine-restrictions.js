@@ -117,34 +117,31 @@ describe('State machine restrictions tests', function () {
           '*',
           'create'
         )
-      })
-
-      it('refresh rbac index', async () => {
         await rbacAdmin.refreshRbacIndex()
       })
-    })
 
-    describe('verify permissions', () => {
-      for (const [resourceType, stateMachineName, rawPermissions] of stateMachinesPermissions) {
-        const permissions = Object.assign({}, rawPermissions)
-        if (resourceType === 'stateMachine') {
-          permissions.create = rawPermissions.create ? [...rawPermissions.create] : []
-          if (!permissions.create.includes('$authenticated'))  {
-            permissions.create.push('$authenticated')
+      describe('verify permissions', () => {
+        for (const [resourceType, stateMachineName, rawPermissions] of stateMachinesPermissions) {
+          const permissions = Object.assign({}, rawPermissions)
+          if (resourceType === 'stateMachine') {
+            permissions.create = rawPermissions.create ? [...rawPermissions.create] : []
+            if (!permissions.create.includes('$authenticated'))  {
+              permissions.create.push('$authenticated')
+            }
           }
-        }
 
-        it(`${resourceType}/${stateMachineName}`, () => {
-          const rule = rbacAdmin.permissionsOn(resourceType, stateMachineName)
+          it(`${resourceType}/${stateMachineName}`, () => {
+            const rule = rbacAdmin.permissionsOn(resourceType, stateMachineName)
             expect(rule).to.eql(permissions)
-        })
-      }
-    })
+          })
+        }
+      })
 
-    actionVerification(
-      [...defaultAllowed, ...defaultNotAllowed.filter(([sm, a, u]) => a === 'create' && u !== null)],
-      defaultNotAllowed.filter(([sm, a, u]) => !(a === 'create' && u !== null))
-    )
+      actionVerification(
+        [...defaultAllowed, ...defaultNotAllowed.filter(([sm, a, u]) => a === 'create' && u !== null)],
+        defaultNotAllowed.filter(([sm, a, u]) => !(a === 'create' && u !== null))
+      )
+    })
 
     describe('remove permission again', () => {
       it('remove permission', async () => {
@@ -154,23 +151,19 @@ describe('State machine restrictions tests', function () {
           '*',
           'create'
         )
-      })
-
-      it('refresh rbac index', async () => {
         await rbacAdmin.refreshRbacIndex()
       })
-    })
+      describe('verify state machine permissions', () => {
+        for (const [resourceType, stateMachineName, permissions] of stateMachinesPermissions) {
+          it(`${resourceType}/${stateMachineName}`, () => {
+            const rule = rbacAdmin.permissionsOn(resourceType, stateMachineName)
+            expect(rule).to.eql(permissions)
+          })
+        }
+      })
 
-    describe('verify state machine permissions', () => {
-      for (const [resourceType, stateMachineName, permissions] of stateMachinesPermissions) {
-        it(`${resourceType}/${stateMachineName}`, () => {
-          const rule = rbacAdmin.permissionsOn(resourceType, stateMachineName)
-          expect(rule).to.eql(permissions)
-        })
-      }
-    })
-
-    actionVerification(defaultAllowed, defaultNotAllowed)
+      actionVerification(defaultAllowed, defaultNotAllowed)
+    }) // remove ...
   })
 
   describe('shutdown', () => {
