@@ -121,19 +121,21 @@ for (const [label, setupFn] of [['user roles', userRoles], ['role membership', r
 
       it('describe tymlyTest_boss', async () => {
         const role = await rbacAdmin.describeRole('tymlyTest_boss')
-        expect(role).to.include({
-          'description': 'Like a Boss!',
-          'label': 'Boss',
-          'roleId': 'tymlyTest_boss'
+        expect(role).to.eql({
+          description: 'Like a Boss!',
+          label: 'Boss',
+          roleId: 'tymlyTest_boss',
+          inherits: ['tymlyTest_boss', 'tymlyTest_teamLeader', 'tymlyTest_developer', '$everyone']
         })
       })
 
       it('describe $everyone', async () => {
         const role = await rbacAdmin.describeRole('$everyone')
         expect(role).to.eql({
-          'description': 'Built in',
-          'label': '$everyone',
-          'roleId': '$everyone'
+          description: 'Built in',
+          label: '$everyone',
+          roleId: '$everyone',
+          inherits: []
         })
       })
 
