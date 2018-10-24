@@ -23,7 +23,7 @@ describe('State machine restrictions tests', function () {
           ],
           config: {
             caches: {
-              userMemberships: {max: 500}
+              userMemberships: { max: 500 }
             }
           }
         },
@@ -125,7 +125,7 @@ describe('State machine restrictions tests', function () {
           const permissions = Object.assign({}, rawPermissions)
           if (resourceType === 'stateMachine') {
             permissions.create = rawPermissions.create ? [...rawPermissions.create] : []
-            if (!permissions.create.includes('$authenticated'))  {
+            if (!permissions.create.includes('$authenticated')) {
               permissions.create.push('$authenticated')
             }
           }
@@ -194,7 +194,7 @@ describe('State machine restrictions tests', function () {
     })
   })
 
-  ///////////////
+  /// ////////////
   function actionVerification (allowed, notAllowed) {
     const testGroups = [
       ['authorised', true, allowed],
