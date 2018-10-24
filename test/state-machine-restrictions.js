@@ -108,15 +108,20 @@ describe('State machine restrictions tests', function () {
     actionVerification(defaultAllowed, defaultNotAllowed)
   }) // describe default restrictions
 
-  describe('grant $authorised -> stateMachines -> * -> create', () => {
-    it('set new default state machine permission', async () => {
-      await rbacAdmin.grantPermission(
-        '$authenticated',
-        'stateMachine',
-        '*',
-        'create'
-      )
-      await rbacAdmin.refreshRbacIndex()
+  describe('$authorised -> stateMachines -> * -> create', () => {
+    describe('grant permission', () => {
+      it('set permission', async () => {
+        await rbacAdmin.grantPermission(
+          '$authenticated',
+          'stateMachine',
+          '*',
+          'create'
+        )
+      })
+
+      it('refresh rbac index', async () => {
+        await rbacAdmin.refreshRbacIndex()
+      })
     })
 
     describe('verify permissions', () => {
@@ -140,6 +145,32 @@ describe('State machine restrictions tests', function () {
       [...defaultAllowed, ...defaultNotAllowed.filter(([sm, a, u]) => a === 'create' && u !== null)],
       defaultNotAllowed.filter(([sm, a, u]) => !(a === 'create' && u !== null))
     )
+
+    describe('remove permission again', () => {
+      it('remove permission', async () => {
+        await rbacAdmin.removePermission(
+          '$authenticated',
+          'stateMachine',
+          '*',
+          'create'
+        )
+      })
+
+      it('refresh rbac index', async () => {
+        await rbacAdmin.refreshRbacIndex()
+      })
+    })
+
+    describe('verify state machine permissions', () => {
+      for (const [resourceType, stateMachineName, permissions] of stateMachinesPermissions) {
+        it(`${resourceType}/${stateMachineName}`, () => {
+          const rule = rbacAdmin.permissionsOn(resourceType, stateMachineName)
+          expect(rule).to.eql(permissions)
+        })
+      }
+    })
+
+    actionVerification(defaultAllowed, defaultNotAllowed)
   })
 
   describe('shutdown', () => {
