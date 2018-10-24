@@ -16,15 +16,14 @@ describe('State machine restrictions tests', function () {
       tymly.boot(
         {
           pluginPaths: [
-            path.resolve(__dirname, '../'),
-            require.resolve('@wmfs/tymly-pg-plugin')
+            path.resolve(__dirname, '../')
           ],
           blueprintPaths: [
             path.resolve(__dirname, './fixtures/blueprints/website-blueprint')
           ],
           config: {
             caches: {
-              userMemberships: { max: 500 }
+              userMemberships: {max: 500}
             }
           }
         },
@@ -44,71 +43,119 @@ describe('State machine restrictions tests', function () {
       await rbacAdmin.ensureUserRoles('test_dev', 'tymlyTest_developer')
       await rbacAdmin.ensureUserRoles('spaceman', ['space_cadet', 'IRRELEVANT'])
     })
-
   })
 
+  const defaultAllowed = [
+    ['tymlyTest_createPost_1_0', 'create', 'loggedInUser'],
+    ['tymlyTest_createPost_1_0', 'cancel', 'test_dev'],
+    ['tymlyTest_deletePost_1_0', 'create', 'boss'],
+    ['tymlyTest_deletePost_1_0', 'cancel', 'boss']
+  ]
+
+  const defaultNotAllowed = [
+    ['tymlyTest_createPost_1_0', 'create', null],
+    ['tymlyTest_createPost_1_0', 'cancel', 'loggedInUser'],
+    ['tymlyTest_deletePost_1_0', 'create', 'test_dev'],
+    ['tymlyTest_deletePost_1_0', 'cancel', 'loggedInUser']
+  ]
+
+  const stateMachinesPermissions = [
+    [
+      'stateMachine',
+      'tymlyTest_createPost_1_0',
+      {
+        create: ['$authenticated'],
+        cancel: ['tymlyTest_developer', 'tymlyTest_teamLeader', 'tymlyTest_boss'],
+        get: ['tymlyTest_tymlyTestReadOnly'],
+        '*': ['tymlyTest_tymlyTestAdmin']
+      }
+    ],
+    [
+      'stateMachine',
+      'tymlyTest_deletePost_1_0',
+      {
+        create: ['tymlyTest_teamLeader', 'tymlyTest_boss'],
+        cancel: ['tymlyTest_boss'],
+        get: ['tymlyTest_tymlyTestReadOnly'],
+        '*': ['tymlyTest_tymlyTestAdmin']
+      }
+    ],
+    [
+      'stateMachine',
+      'non-existent-state-machine',
+      {
+        get: ['tymlyTest_tymlyTestReadOnly'],
+        '*': ['tymlyTest_tymlyTestAdmin']
+      }
+    ],
+    [
+      'trouserPress',
+      'corby_3300',
+      {}
+    ]
+  ]
+
   describe('default permissions, set in the state machine definitions', () => {
-    const stateMachinesPermissions = [
-      [
+    describe('verify state machine permissions', () => {
+      for (const [resourceType, stateMachineName, permissions] of stateMachinesPermissions) {
+        it(`${resourceType}/${stateMachineName}`, () => {
+          const rule = rbacAdmin.permissionsOn(resourceType, stateMachineName)
+          expect(rule).to.eql(permissions)
+        })
+      }
+    })
+
+    actionVerification(defaultAllowed, defaultNotAllowed)
+  }) // describe default restrictions
+
+  describe('grant $authorised -> stateMachines -> * -> create', () => {
+    it('set new default state machine permission', () => {
+      rbacAdmin.grantPermission(
+        '$authenticated',
         'stateMachine',
-        'tymlyTest_createPost_1_0', {
-          create: ['$authenticated'],
-          cancel: ['tymlyTest_developer', 'tymlyTest_teamLeader', 'tymlyTest_boss'],
-          get: ['tymlyTest_tymlyTestReadOnly'],
-          '*': ['tymlyTest_tymlyTestAdmin']
+        '*',
+        'create'
+      )
+    })
+
+    describe('verify permissions', () => {
+      for (const [resourceType, stateMachineName, rawPermissions] of stateMachinesPermissions) {
+        const permissions = Object.assign({}, rawPermissions)
+        if (resourceType === 'stateMachine') {
+          permissions.create = rawPermissions.create ? [...rawPermissions.create] : []
+          if (!permissions.create.includes('$authenticated'))  {
+            permissions.create.push('$authenticated')
+          }
         }
-      ],
-      [
-        'stateMachine',
-        'tymlyTest_deletePost_1_0', {
-          create: ['tymlyTest_teamLeader', 'tymlyTest_boss'],
-          cancel: ['tymlyTest_boss'],
-          get: ['tymlyTest_tymlyTestReadOnly'],
-          '*': ['tymlyTest_tymlyTestAdmin']
-        }
-      ],
-      [
-        'stateMachine',
-        'non-existent-state-machine', {
-          get: ['tymlyTest_tymlyTestReadOnly'],
-          '*': ['tymlyTest_tymlyTestAdmin']
-        }
-      ],
-      [
-        'trouserPress',
-        'corby_3300',
-        { }
-      ]
+
+        it(`${resourceType}/${stateMachineName}`, () => {
+          const rule = rbacAdmin.permissionsOn(resourceType, stateMachineName)
+            expect(rule).to.eql(permissions)
+        })
+      }
+    })
+
+    actionVerification(
+      [...defaultAllowed, ...defaultNotAllowed.filter(([sm, a, u]) => a === 'create' && u !== null)],
+      defaultNotAllowed.filter(([sm, a, u]) => !(a === 'create' && u !== null))
+    )
+  })
+
+  describe('shutdown', () => {
+    it('shutdown Tymly', async () => {
+      await tymlyService.shutdown()
+    })
+  })
+
+  ///////////////
+  function actionVerification (allowed, notAllowed) {
+    const testGroups = [
+      ['authorised', true, allowed],
+      ['not authorised', false, notAllowed]
     ]
 
-    for (const [resourceType, stateMachineName, permissions] of stateMachinesPermissions) {
-      it(`verify ${resourceType}/${stateMachineName} restrictions`, () => {
-        const rule = rbacAdmin.permissionsOn(resourceType, stateMachineName)
-        expect(rule).to.eql(permissions)
-      })
-    }
-
-    const defaultAllowed = [
-      ['tymlyTest_createPost_1_0', 'create', 'loggedInUser'],
-      ['tymlyTest_createPost_1_0', 'cancel', 'test_dev'],
-      ['tymlyTest_deletePost_1_0', 'create', 'boss'],
-      ['tymlyTest_deletePost_1_0', 'cancel', 'boss']
-    ]
-
-    const defaultNotAllowed = [
-      ['tymlyTest_createPost_1_0', 'create', null],
-      ['tymlyTest_createPost_1_0', 'cancel', 'loggedInUser'],
-      ['tymlyTest_deletePost_1_0', 'create', 'test_dev'],
-      ['tymlyTest_deletePost_1_0', 'cancel', 'loggedInUser']
-    ]
-
-    const defaultTests = [
-      ['authorised', true, defaultAllowed],
-      ['not authorised', false, defaultNotAllowed]
-    ]
-
-    for (const [label, outcome, tests] of defaultTests) {
-      describe(label, () => {
+    for (const [label, outcome, tests] of testGroups) {
+      describe(`${label} actions`, () => {
         for (const [stateMachineName, action, userId] of tests) {
           it(`${stateMachineName} ${action} by ${userId}`, async () => {
             expect(
@@ -124,11 +171,5 @@ describe('State machine restrictions tests', function () {
         } // for ...
       }) // describe ...
     } // for ...
-  }) // describe default restrictions
-
-  describe('shutdown', () => {
-    it('shutdown Tymly', async () => {
-      await tymlyService.shutdown()
-    })
-  })
+  } // actionVerification ...
 })
