@@ -47,8 +47,8 @@ describe('State machine restrictions tests', function () {
 
   })
 
-  describe('default restrictions', () => {
-    const stateMachinesRestrictions = [
+  describe('default permissions, set in the state machine definitions', () => {
+    const stateMachinesPermissions = [
       [
         'stateMachine',
         'tymlyTest_createPost_1_0', {
@@ -81,10 +81,10 @@ describe('State machine restrictions tests', function () {
       ]
     ]
 
-    for (const [resourceType, stateMachineName, restriction] of stateMachinesRestrictions) {
+    for (const [resourceType, stateMachineName, permissions] of stateMachinesPermissions) {
       it(`verify ${resourceType}/${stateMachineName} restrictions`, () => {
-        const rule = rbacAdmin.restrictionsOn(resourceType, stateMachineName)
-        expect(rule).to.eql(restriction)
+        const rule = rbacAdmin.permissionsOn(resourceType, stateMachineName)
+        expect(rule).to.eql(permissions)
       })
     }
 
