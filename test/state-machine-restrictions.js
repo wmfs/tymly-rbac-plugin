@@ -108,7 +108,7 @@ describe('State machine restrictions tests', function () {
     actionVerification(defaultAllowed, defaultNotAllowed)
   }) // describe default restrictions
 
-  describe('$authorised -> stateMachines -> * -> create', () => {
+  describe('$authorised -> stateMachine -> * -> create', () => {
     describe('grant permission', () => {
       it('set permission', async () => {
         await rbacAdmin.grantPermission(
@@ -164,6 +164,28 @@ describe('State machine restrictions tests', function () {
 
       actionVerification(defaultAllowed, defaultNotAllowed)
     }) // remove ...
+  })
+
+  describe('tymlyTestReadOnly -> stateMachine -> * -> get', () => {
+    it('remove pre-defined permission', async () => {
+      await rbacAdmin.removePermission(
+        'tymlyTest_tymlyTestReadOnly',
+        'stateMachine',
+        '*',
+        'get'
+      )
+      await rbacAdmin.refreshRbacIndex()
+    })
+    describe('verify state machine permissions', () => {
+      for (const [resourceType, stateMachineName, rawPermissions] of stateMachinesPermissions) {
+        const permissions = Object.assign({}, rawPermissions)
+        delete permissions.get
+        it(`${resourceType}/${stateMachineName}`, () => {
+          const rule = rbacAdmin.permissionsOn(resourceType, stateMachineName)
+          expect(rule).to.eql(permissions)
+        })
+      }
+    })
   })
 
   describe('shutdown', () => {
