@@ -109,13 +109,14 @@ describe('State machine restrictions tests', function () {
   }) // describe default restrictions
 
   describe('grant $authorised -> stateMachines -> * -> create', () => {
-    it('set new default state machine permission', () => {
-      rbacAdmin.grantPermission(
+    it('set new default state machine permission', async () => {
+      await rbacAdmin.grantPermission(
         '$authenticated',
         'stateMachine',
         '*',
         'create'
       )
+      await rbacAdmin.refreshRbacIndex()
     })
 
     describe('verify permissions', () => {
