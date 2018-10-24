@@ -16,8 +16,7 @@ describe('Authorisation tests', function () {
       tymly.boot(
         {
           pluginPaths: [
-            path.resolve(__dirname, '../'),
-            require.resolve('@wmfs/tymly-pg-plugin')
+            path.resolve(__dirname, '../')
           ],
           blueprintPaths: [
             path.resolve(__dirname, './fixtures/blueprints/website-blueprint')

@@ -107,8 +107,7 @@ describe('Statebox service RBAC authorisation', function () {
           pluginPaths: [
             path.resolve(__dirname, '../.'),
             path.resolve(__dirname, './fixtures/plugins/success-plugin'),
-            path.resolve(__dirname, './fixtures/plugins/heartbeat-plugin'),
-            require.resolve('@wmfs/tymly-pg-plugin')
+            path.resolve(__dirname, './fixtures/plugins/heartbeat-plugin')
           ]
         },
         function (err, tymlyServices) {
