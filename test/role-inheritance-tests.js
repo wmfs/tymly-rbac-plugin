@@ -124,7 +124,7 @@ describe('Role Inheritance tests', function () {
   })
 
   describe('update space_cadet role, inheriting developer & readonly', () => {
-    it('create space_cadet', async () => {
+    it('set new inherited roles', async () => {
       await rbacAdmin.updateRole(
         'space_cadet',
         'SpaceCadet',
@@ -153,7 +153,7 @@ describe('Role Inheritance tests', function () {
   })
 
   describe('update space_cadet role, inheriting team leader', () => {
-    it('create space_cadet', async () => {
+    it('set teamLeader as only inherited role', async () => {
       await rbacAdmin.updateRole(
         'space_cadet',
         'SpaceCadet',
@@ -173,11 +173,11 @@ describe('Role Inheritance tests', function () {
       [
         ...defaultAllowed,
         ...allowedIfDeveloper,
-        ...allowedIfTeamLeader,
-        ...allowedIfReadOnly
+        ...allowedIfTeamLeader
       ],
       [
-        ...allowedIfBoss
+        ...allowedIfBoss,
+        ...allowedIfReadOnly
       ]
     )
   })
@@ -230,6 +230,17 @@ describe('Role Inheritance tests', function () {
           [ ]
         )
       ).eventually.be.rejected()
+    })
+
+    it('can not update non-existant role', async () => {
+      expect(
+        rbacAdmin.updateRole(
+          'sugar-plum-fairy',
+          'Dancing and Leaping',
+          'From The Brain of Pyotr Ilyich Tchaikovsky!',
+          [ 'tymlyTest_developer' ]
+        )
+      ).to.eventually.be.rejected()
     })
   })
 
