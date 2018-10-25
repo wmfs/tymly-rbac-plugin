@@ -2,6 +2,8 @@
 
 const chai = require('chai')
 chai.use(require('dirty-chai'))
+chai.use(require('chai-as-promised'))
+
 const expect = chai.expect
 const tymly = require('@wmfs/tymly')
 const path = require('path')
@@ -60,14 +62,13 @@ describe('Role Inheritance tests', function () {
   ]
 
   const allowedIfDeveloper = [
-    ['tymlyTest_createPost_1_0', 'cancel', 'spaceman'],
+    ['tymlyTest_createPost_1_0', 'cancel', 'spaceman']
   ]
   const allowedIfTeamLeader = [
-    ['tymlyTest_deletePost_1_0', 'create', 'spaceman'],
-    ['tymlyTest_createPost_1_0', 'cancel', 'spaceman'],
+    ['tymlyTest_deletePost_1_0', 'create', 'spaceman']
   ]
   const allowedIfBoss = [
-    ['tymlyTest_deletePost_1_0', 'cancel', 'spaceman'],
+    ['tymlyTest_deletePost_1_0', 'cancel', 'spaceman']
   ]
   const allowedIfReadOnly = [
     ['tymlyTest_createPost_1_0', 'get', 'spaceman'],
@@ -94,12 +95,12 @@ describe('Role Inheritance tests', function () {
   }) // describe default restrictions
 
   describe('create space_cadet role, inheriting developer', () => {
-    it ('create space_cadet', async () => {
+    it('create space_cadet', async () => {
       await rbacAdmin.createRole(
         'space_cadet',
         'SpaceCadet',
         'From The Cosmos!',
-        [ 'tymlyTest_developer']
+        [ 'tymlyTest_developer' ]
       )
       await rbacAdmin.refreshRbacIndex()
     })
@@ -115,10 +116,68 @@ describe('Role Inheritance tests', function () {
         ...allowedIfDeveloper
       ],
       [
-        ...allowedIfDeveloper,
         ...allowedIfTeamLeader,
         ...allowedIfBoss,
         ...allowedIfReadOnly
+      ]
+    )
+  })
+
+  describe('update space_cadet role, inheriting developer & readonly', () => {
+    it('create space_cadet', async () => {
+      await rbacAdmin.updateRole(
+        'space_cadet',
+        'SpaceCadet',
+        'To Infinity!',
+        [ 'tymlyTest_developer', 'tymlyTest_tymlyTestReadOnly' ]
+      )
+      await rbacAdmin.refreshRbacIndex()
+    })
+
+    it('describe space_cadet', async () => {
+      const role = await rbacAdmin.describeRole('space_cadet')
+      expect(role.inherits).to.eql([ 'tymlyTest_developer', 'tymlyTest_tymlyTestReadOnly' ])
+    })
+
+    actionVerification(
+      [
+        ...defaultAllowed,
+        ...allowedIfDeveloper,
+        ...allowedIfReadOnly
+      ],
+      [
+        ...allowedIfTeamLeader,
+        ...allowedIfBoss
+      ]
+    )
+  })
+
+  describe('update space_cadet role, inheriting team leader', () => {
+    it('create space_cadet', async () => {
+      await rbacAdmin.updateRole(
+        'space_cadet',
+        'SpaceCadet',
+        'Ad Astra!',
+        [ 'tymlyTest_teamLeader' ]
+      )
+      await rbacAdmin.refreshRbacIndex()
+    })
+
+    it('describe space_cadet', async () => {
+      const role = await rbacAdmin.describeRole('space_cadet')
+      expect(role.description).to.eql('Ad Astra!')
+      expect(role.inherits).to.eql([ 'tymlyTest_teamLeader' ])
+    })
+
+    actionVerification(
+      [
+        ...defaultAllowed,
+        ...allowedIfDeveloper,
+        ...allowedIfTeamLeader,
+        ...allowedIfReadOnly
+      ],
+      [
+        ...allowedIfBoss
       ]
     )
   })
@@ -131,7 +190,7 @@ describe('Role Inheritance tests', function () {
         'From The Cosmos!',
         [ 'tymlyTest_developer', '$authenticated' ]
       )
-      const dsc = rbacAdmin.describeRole('dev_space_cadet')
+      const dsc = await rbacAdmin.describeRole('dev_space_cadet')
       expect(dsc.inherits).to.eql(['tymlyTest_developer'])
 
       await rbacAdmin.createRole(
@@ -140,19 +199,19 @@ describe('Role Inheritance tests', function () {
         'From The Cosmos!',
         [ '$authenticated' ]
       )
-      const bc = rbacAdmin.describeRole('base_cadet')
+      const bc = await rbacAdmin.describeRole('base_cadet')
       expect(bc.inherits).to.eql([])
     })
 
     it('role id must not start with $', () => {
-      expect(async () => {
-        await rbacAdmin.createRole(
+      expect(
+        rbacAdmin.createRole(
           '$space_cadet',
           'SpaceCadet',
           'From The Cosmos!',
           [ 'tymlyTest_developer' ]
         )
-      }).to.throw()
+      ).to.eventually.be.rejected()
     })
 
     it('can not create role with existing id', async () => {
@@ -163,14 +222,14 @@ describe('Role Inheritance tests', function () {
         [ ]
       )
 
-      expect(async () => {
-        await rbacAdmin.createRole(
+      expect(
+        rbacAdmin.createRole(
           'giant_egg',
           'A Big Egg',
           'Out of the nether end of an apatosaurus',
           [ ]
         )
-      }).to.throw()
+      ).eventually.be.rejected()
     })
   })
 
