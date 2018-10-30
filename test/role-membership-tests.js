@@ -145,6 +145,21 @@ for (const [label, setupFn] of [['user roles', userRoles], ['role membership', r
       })
     })
 
+    if (label === 'user roles') {
+      describe('clear user roles', () => {
+        it(`clear mommy roles`, async () => {
+          const roles = await rbac.listUserRoles('mommy')
+          expect(roles.length).to.eql(4)
+
+          await rbacAdmin.clearUserRoles('mommy')
+          await rbacAdmin.refreshRbacIndex()
+
+          const clearedRoles = await rbac.listUserRoles('mommy')
+          expect(clearedRoles).to.eql(['$everyone'])
+        })
+      })
+    }
+
     describe('shutdown', () => {
       it('shutdown Tymly', async () => {
         await tymlyService.shutdown()
