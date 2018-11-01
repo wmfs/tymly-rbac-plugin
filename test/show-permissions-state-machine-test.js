@@ -16,6 +16,18 @@ describe('RBAC Permissions State Machine', function () {
     stateMachine: {
       tymly_rbacPermissionsTree_1_0: {
         '*': ['tymly_rbacAdmin']
+      },
+      tymly_rbacGrantStateMachinePermission_1_0: {
+        '*': ['tymly_rbacAdmin']
+      },
+      tymly_rbacRefreshPermissions_1_0: {
+        '*': ['tymly_rbacAdmin']
+      },
+      tymly_rbacListRoles_1_0: {
+        '*': ['tymly_rbacAdmin']
+      },
+      tymly_rbacCreateRole_1_0: {
+        '*': ['tymly_rbacAdmin']
       }
     }
   }
@@ -41,7 +53,122 @@ describe('RBAC Permissions State Machine', function () {
     )
   })
 
-  it('fetch permissions tree', async () => {
+  describe ('list and create roles', () => {
+    it('list roles', async () => {
+      const roles = await statebox.startExecution(
+        {},
+        'tymly_rbacListRoles_1_0',
+        {
+          sendResponse: 'COMPLETE',
+          userId: adminUser
+        }
+      )
+
+      expect(roles.status).to.eql('SUCCEEDED')
+      expect(roles.ctx.roles).to.eql({
+        'tymly_rbacAdmin': {
+          label: 'rbac-admin',
+          description: 'RBAC administrator',
+          inherits: []
+        }
+      })
+    })
+
+    it('create fsOfficer role', async () => {
+      const create = await statebox.startExecution(
+        {
+          roleId: 'fsOfficer',
+          label: 'fs-officer',
+          description: 'Fire Safety Officer',
+        },
+        'tymly_rbacCreateRole_1_0',
+        {
+          sendResponse: 'COMPLETE',
+          userId: adminUser
+        }
+      )
+
+      expect(create.status).to.eql('SUCCEEDED')
+    })
+
+    it('list updated roles', async () => {
+      const roles = await statebox.startExecution(
+        {},
+        'tymly_rbacListRoles_1_0',
+        {
+          sendResponse: 'COMPLETE',
+          userId: adminUser
+        }
+      )
+
+      expect(roles.status).to.eql('SUCCEEDED')
+      expect(roles.ctx.roles).to.eql({
+        'tymly_rbacAdmin': {
+          label: 'rbac-admin',
+          description: 'RBAC administrator',
+          inherits: []
+        },
+        'fsOfficer': {
+          label: 'fs-officer',
+          description: 'Fire Safety Officer',
+          inherits: []
+        }
+      })
+    })
+  })
+
+  describe ('list and grant permissions', () => {
+    it('fetch permissions tree', async () => {
+      const tree = await fetchPermissionsTree()
+      expect(tree).to.eql(expectedTree)
+    })
+
+    it('grant permission', async () => {
+      const grant = await statebox.startExecution(
+        {
+          roleId: 'fsOfficer',
+          stateMachineName: 'wmfs_safeAndStrong_1_0',
+          action: ['create', 'cancel']
+        },
+        'tymly_rbacGrantStateMachinePermission_1_0',
+        {
+          sendResponse: 'COMPLETE',
+          userId: adminUser
+        }
+      )
+      expect(grant.status).to.eql('SUCCEEDED')
+    })
+
+    it('refresh rbac index', async () => {
+      const refresh = await
+      statebox.startExecution(
+        {},
+        'tymly_rbacRefreshPermissions_1_0',
+        {
+          sendResponse: 'COMPLETE',
+          userId: adminUser
+        }
+      )
+      expect(refresh.status).to.eql('SUCCEEDED')
+    })
+
+    it('fetch updated permissions tree', async () => {
+      const tree = await fetchPermissionsTree()
+
+      expectedTree.stateMachine.wmfs_safeAndStrong_1_0 = {
+        create: ['fsOfficer'],
+        cancel: ['fsOfficer']
+      }
+
+      expect(tree).to.eql(expectedTree)
+    })
+  })
+
+  after('shutdown Tymly', async () => {
+    await tymlyService.shutdown()
+  })
+
+  async function fetchPermissionsTree () {
     const execDesc = await statebox.startExecution(
       {},
       'tymly_rbacPermissionsTree_1_0',
@@ -52,11 +179,7 @@ describe('RBAC Permissions State Machine', function () {
     )
 
     expect(execDesc.status).to.eql('SUCCEEDED')
-    const tree = execDesc.ctx.permissions
-    expect(tree).to.eql(expectedTree)
-  })
-
-  after('shutdown Tymly', async () => {
-    await tymlyService.shutdown()
-  })
+    return execDesc.ctx.permissions
+  } // fetchPermissionsTree
 })
+

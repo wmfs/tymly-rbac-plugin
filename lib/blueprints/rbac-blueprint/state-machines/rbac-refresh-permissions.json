@@ -1,0 +1,24 @@
+{
+  "Comment": "Refreshes the RBAC index, reloading permissions and flushing caches",
+  "Version": "1.0",
+  "version": "1.0",
+
+  "StartAt": "Refresh",
+  "States": {
+    "Refresh": {
+      "Type": "Task",
+      "Resource": "module:refreshPermissions",
+      "ResultPath": null,
+      "End": true
+    }
+  },
+
+  "restrictions": [
+    {
+      "roleId": "tymly_rbacAdmin",
+      "allows": [
+        "*"
+      ]
+    }
+  ]
+}

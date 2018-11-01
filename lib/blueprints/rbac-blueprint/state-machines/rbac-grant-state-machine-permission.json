@@ -1,0 +1,24 @@
+{
+  "Comment": "Grants permissions on a state machine",
+  "Version": "1.0",
+  "version": "1.0",
+
+  "StartAt": "Grant",
+  "States": {
+    "Grant": {
+      "Type": "Task",
+      "Resource": "module:grantPermission",
+      "ResultPath": null,
+      "End": true
+    }
+  },
+
+  "restrictions": [
+    {
+      "roleId": "tymly_rbacAdmin",
+      "allows": [
+        "*"
+      ]
+    }
+  ]
+}

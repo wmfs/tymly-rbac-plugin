@@ -1,0 +1,24 @@
+{
+  "Comment": "Create an RBAC role",
+  "Version": "1.0",
+  "version": "1.0",
+
+  "StartAt": "CreateRole",
+  "States": {
+    "CreateRole": {
+      "Type": "Task",
+      "Resource": "module:createRole",
+      "ResultPath": null,
+      "End": true
+    }
+  },
+
+  "restrictions": [
+    {
+      "roleId": "tymly_rbacAdmin",
+      "allows": [
+        "*"
+      ]
+    }
+  ]
+}

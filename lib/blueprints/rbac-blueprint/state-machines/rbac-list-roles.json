@@ -1,0 +1,24 @@
+{
+  "Comment": "Lists RBAC roles",
+  "Version": "1.0",
+  "version": "1.0",
+
+  "StartAt": "Roles",
+  "States": {
+    "Roles": {
+      "Type": "Task",
+      "Resource": "module:listRoles",
+      "ResultPath": "$.roles",
+      "End": true
+    }
+  },
+
+  "restrictions": [
+    {
+      "roleId": "tymly_rbacAdmin",
+      "allows": [
+        "*"
+      ]
+    }
+  ]
+}
