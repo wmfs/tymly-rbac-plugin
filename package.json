@@ -19,7 +19,8 @@
   },
   "main": "./lib/index.js",
   "dependencies": {
-    "@wmfs/rbac": "1.6.1"
+    "@wmfs/rbac": "1.6.1",
+    "dottie": "2.0.1"
   },
   "devDependencies": {
     "@semantic-release/changelog": "3.0.1",
