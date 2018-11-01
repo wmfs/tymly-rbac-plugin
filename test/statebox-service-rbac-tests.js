@@ -16,13 +16,13 @@ const startTests = [
     blueprint: 'tymlyTest_authenticated_1_0',
     allowed: ['jim.smith', 'administrator'],
     disallowed: [null]
-  } /* ,
-    {
-      label: 'admin',
-      blueprint: 'tymlyTest_admin_1_0',
-      allowed: ['administrator'],
-      disallowed: [null, 'jim.smith']
-    } */
+  }  ,
+  {
+    label: 'admin',
+    blueprint: 'tymlyTest_admin_1_0',
+    allowed: ['administrator'],
+    disallowed: [null, 'jim.smith']
+  }
 ]
 
 const heartBeatBlueprints = [
@@ -125,7 +125,7 @@ describe('Statebox service RBAC authorisation', function () {
     })
 
     it('grant \'admin\' permission to \'administrator\'', async () => {
-      await rbacAdmin.ensureUserRoles('administrator', ['admin'])
+      await rbacAdmin.ensureUserRoles('administrator', ['tymly_rbacAdmin'])
       await rbacAdmin.refreshRbacIndex()
 
       rbac.debug()

@@ -12,7 +12,7 @@
   },
   "restrictions": [
     {
-      "roleId": "admin",
+      "roleId": "tymly_rbacAdmin",
       "allows": [
         "*"
       ]

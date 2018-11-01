@@ -34,7 +34,7 @@ const allUserRoles = [
   ]
 ]
 
-const allRoles = ['tymlyTest_boss', 'tymlyTest_teamLeader', 'tymlyTest_developer', 'tymlyTest_tymlyTestAdmin', 'tymlyTest_tymlyTestReadOnly']
+const allRoles = ['tymly_rbacAdmin', 'tymlyTest_boss', 'tymlyTest_teamLeader', 'tymlyTest_developer', 'tymlyTest_tymlyTestAdmin', 'tymlyTest_tymlyTestReadOnly']
 
 let tymlyService
 let rbac
