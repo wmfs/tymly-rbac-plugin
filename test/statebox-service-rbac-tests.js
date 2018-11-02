@@ -16,7 +16,7 @@ const startTests = [
     blueprint: 'tymlyTest_authenticated_1_0',
     allowed: ['jim.smith', 'administrator'],
     disallowed: [null]
-  }  ,
+  },
   {
     label: 'admin',
     blueprint: 'tymlyTest_admin_1_0',

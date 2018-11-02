@@ -53,7 +53,7 @@ describe('RBAC Permissions State Machine', function () {
     )
   })
 
-  describe ('list and create roles', () => {
+  describe('list and create roles', () => {
     it('list roles', async () => {
       const roles = await statebox.startExecution(
         {},
@@ -79,7 +79,7 @@ describe('RBAC Permissions State Machine', function () {
         {
           roleId: 'fsOfficer',
           label: 'fs-officer',
-          description: 'Fire Safety Officer',
+          description: 'Fire Safety Officer'
         },
         'tymly_rbacCreateRole_1_0',
         {
@@ -117,7 +117,7 @@ describe('RBAC Permissions State Machine', function () {
     })
   })
 
-  describe ('list and grant permissions', () => {
+  describe('list and grant permissions', () => {
     it('fetch permissions tree', async () => {
       const tree = await fetchPermissionsTree()
       expect(tree).to.eql(expectedTree)
@@ -182,4 +182,3 @@ describe('RBAC Permissions State Machine', function () {
     return execDesc.ctx.permissions
   } // fetchPermissionsTree
 })
-
