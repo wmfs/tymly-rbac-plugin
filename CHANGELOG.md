@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.10.0...v1.10.1) (2018-11-12)
+
+
+### 🐛 Bug Fixes
+
+* When userInfo.rolesFromUserId fails, continue ([7e63d1e](https://github.com/wmfs/tymly-rbac-plugin/commit/7e63d1e))
+
 # [1.10.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.9.0...v1.10.0) (2018-11-06)
 
 
