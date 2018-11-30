@@ -1,3 +1,25 @@
+## [1.12.1](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.12.0...v1.12.1) (2018-11-30)
+
+
+### 🐛 Bug Fixes
+
+* Always create the template roles and state machine permissions ([da9857a](https://github.com/wmfs/tymly-rbac-plugin/commit/da9857a))
+
+
+### 🛠 Builds
+
+* **deps-dev:** update [@wmfs](https://github.com/wmfs)/tymly requirement from 1.59.0 to 1.60.0 ([5a4fba1](https://github.com/wmfs/tymly-rbac-plugin/commit/5a4fba1))
+* **deps-dev:** update [@wmfs](https://github.com/wmfs)/tymly requirement from 1.59.0 to 1.60.0 ([d62868b](https://github.com/wmfs/tymly-rbac-plugin/commit/d62868b))
+* **deps-dev:** update [@wmfs](https://github.com/wmfs)/tymly requirement from 1.60.0 to 1.61.0 ([dc84f5a](https://github.com/wmfs/tymly-rbac-plugin/commit/dc84f5a))
+* **deps-dev:** update [@wmfs](https://github.com/wmfs)/tymly requirement from 1.61.0 to 1.62.0 ([a697c18](https://github.com/wmfs/tymly-rbac-plugin/commit/a697c18))
+* **deps-dev:** update [@wmfs](https://github.com/wmfs)/tymly requirement from 1.62.0 to 1.63.0 ([092f776](https://github.com/wmfs/tymly-rbac-plugin/commit/092f776))
+* **deps-dev:** update [@wmfs](https://github.com/wmfs)/tymly requirement from 1.63.0 to 1.64.0 ([7adaf8b](https://github.com/wmfs/tymly-rbac-plugin/commit/7adaf8b))
+* **deps-dev:** update [@wmfs](https://github.com/wmfs)/tymly requirement from 1.64.0 to 1.65.0 ([5bf7030](https://github.com/wmfs/tymly-rbac-plugin/commit/5bf7030))
+* **deps-dev:** update [@wmfs](https://github.com/wmfs)/tymly requirement from 1.65.0 to 1.65.1 ([2225c0e](https://github.com/wmfs/tymly-rbac-plugin/commit/2225c0e))
+* **deps-dev:** update [@wmfs](https://github.com/wmfs)/tymly requirement from 1.65.1 to 1.66.0 ([fb936bf](https://github.com/wmfs/tymly-rbac-plugin/commit/fb936bf))
+* **deps-dev:** update semantic-release requirement ([361cc02](https://github.com/wmfs/tymly-rbac-plugin/commit/361cc02))
+* **deps-dev:** update semantic-release requirement ([54e76a5](https://github.com/wmfs/tymly-rbac-plugin/commit/54e76a5))
+
 # [1.12.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.11.0...v1.12.0) (2018-11-14)
 
 
