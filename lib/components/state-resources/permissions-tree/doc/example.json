@@ -1,0 +1,8 @@
+{
+  "PermissionsTree": {
+    "Type": "Task",
+    "Resource": "module:permissionsTree",
+    "ResultPath": "$.permissions",
+    "End": true
+  }
+}

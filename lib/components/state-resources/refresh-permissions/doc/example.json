@@ -1,0 +1,8 @@
+{
+  "Refresh": {
+    "Type": "Task",
+    "Resource": "module:refreshPermissions",
+    "ResultPath": null,
+    "End": true
+  }
+}

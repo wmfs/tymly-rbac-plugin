@@ -1,0 +1,8 @@
+{
+  "GrantPermission": {
+    "Type": "Task",
+    "Resource": "module:grantPermission",
+    "ResultPath": null,
+    "End": true
+  }
+}

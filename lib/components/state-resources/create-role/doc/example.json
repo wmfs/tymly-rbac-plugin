@@ -1,0 +1,8 @@
+{
+  "CreateRole": {
+    "Type": "Task",
+    "Resource": "module:createRole",
+    "ResultPath": null,
+    "End": true
+  }
+}

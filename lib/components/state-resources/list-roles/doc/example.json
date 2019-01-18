@@ -1,0 +1,8 @@
+{
+  "Roles": {
+    "Type": "Task",
+    "Resource": "module:listRoles",
+    "ResultPath": "$.roles",
+    "End": true
+  }
+}
