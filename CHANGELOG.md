@@ -1,3 +1,28 @@
+## [1.12.2](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.12.1...v1.12.2) (2019-03-21)
+
+
+### 🐛 Bug Fixes
+
+* Corrected parameter extracted value paths. ([92bdd77](https://github.com/wmfs/tymly-rbac-plugin/commit/92bdd77))
+* Fixed state resource and state machine validation. ([d4ca83e](https://github.com/wmfs/tymly-rbac-plugin/commit/d4ca83e))
+
+
+### 🛠 Builds
+
+* **deps-dev:** Update semantic-release requirement ([#102](https://github.com/wmfs/tymly-rbac-plugin/issues/102)) ([2e29a6e](https://github.com/wmfs/tymly-rbac-plugin/commit/2e29a6e))
+
+
+### ⚙️ Continuous Integrations
+
+* **circle:** add circle ci config ([be2aee9](https://github.com/wmfs/tymly-rbac-plugin/commit/be2aee9))
+* **travis:** update travis config ([1f50344](https://github.com/wmfs/tymly-rbac-plugin/commit/1f50344))
+
+
+### ♻️ Chores
+
+* Add examples ([4463905](https://github.com/wmfs/tymly-rbac-plugin/commit/4463905))
+* **dev-deps:** Bump all the things. ([695cab4](https://github.com/wmfs/tymly-rbac-plugin/commit/695cab4))
+
 ## [1.12.1](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.12.0...v1.12.1) (2018-11-30)
 
 
