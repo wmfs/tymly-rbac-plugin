@@ -8,6 +8,11 @@
     "Grant": {
       "Type": "Task",
       "Resource": "module:grantPermission",
+      "Parameters": {
+        "roleId.$": "$.formData.roleId",
+        "stateMachine.$": "$.formData.stateMachineName",
+        "action.$": "$.formData.action"
+      },
       "ResultPath": null,
       "End": true
     }

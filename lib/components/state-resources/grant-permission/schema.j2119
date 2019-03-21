@@ -1,1 +1,4 @@
-This document specifies a JSON object called a "PermissionsTree Resource Config".
+This document specifies a JSON object called a "Permission Grant".
+A Permission Grant MUST have a string field named "roleId".
+A Permission Grant MUST have a string field named "stateMachine".
+A Permission Grant MUST have a string-array field named "action".

@@ -8,6 +8,12 @@
     "CreateRole": {
       "Type": "Task",
       "Resource": "module:createRole",
+      "Parameters": {
+        "roleId.$": "$.formData.roleId",
+        "label.$": "$.formData.label",
+        "description.$": "$.formData.description",
+        "inherits.$": "$.formData.inherits"
+      },
       "ResultPath": null,
       "End": true
     }

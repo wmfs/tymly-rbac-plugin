@@ -1,1 +1,5 @@
-This document specifies a JSON object called a "PermissionsTree Resource Config".
+This document specifies a JSON object called a "New Role".
+A New Role MUST have a string field named "roleId".
+A New Role MAY have a string field named "label".
+A New Role MAY have a string field named "description".
+A New Role MAY have a string-array field named "inherits".
