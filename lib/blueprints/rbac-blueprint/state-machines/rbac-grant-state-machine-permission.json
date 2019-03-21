@@ -9,9 +9,9 @@
       "Type": "Task",
       "Resource": "module:grantPermission",
       "Parameters": {
-        "roleId.$": "$.formData.roleId",
-        "stateMachine.$": "$.formData.stateMachineName",
-        "action.$": "$.formData.action"
+        "roleId.$": "$.roleId",
+        "stateMachine.$": "$.stateMachineName",
+        "action.$": "$.action"
       },
       "ResultPath": null,
       "End": true

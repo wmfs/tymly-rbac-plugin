@@ -9,10 +9,10 @@
       "Type": "Task",
       "Resource": "module:createRole",
       "Parameters": {
-        "roleId.$": "$.formData.roleId",
-        "label.$": "$.formData.label",
-        "description.$": "$.formData.description",
-        "inherits.$": "$.formData.inherits"
+        "roleId.$": "$.roleId",
+        "label.$": "$.label",
+        "description.$": "$.description",
+        "inherits.$": "$.inherits"
       },
       "ResultPath": null,
       "End": true
