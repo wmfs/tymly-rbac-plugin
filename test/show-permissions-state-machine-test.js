@@ -17,6 +17,9 @@ describe('RBAC Permissions State Machine', function () {
       tymly_rbacPermissionsTree_1_0: {
         '*': ['tymly_rbacAdmin']
       },
+      tymly_rbacGrantRoleMembership_1_0: {
+        '*': ['tymly_rbacAdmin']
+      },
       tymly_rbacGrantStateMachinePermission_1_0: {
         '*': ['tymly_rbacAdmin']
       },
@@ -141,14 +144,14 @@ describe('RBAC Permissions State Machine', function () {
 
     it('refresh rbac index', async () => {
       const refresh = await
-      statebox.startExecution(
-        {},
-        'tymly_rbacRefreshPermissions_1_0',
-        {
-          sendResponse: 'COMPLETE',
-          userId: adminUser
-        }
-      )
+        statebox.startExecution(
+          {},
+          'tymly_rbacRefreshPermissions_1_0',
+          {
+            sendResponse: 'COMPLETE',
+            userId: adminUser
+          }
+        )
       expect(refresh.status).to.eql('SUCCEEDED')
     })
 
