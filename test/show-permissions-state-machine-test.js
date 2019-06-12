@@ -143,15 +143,14 @@ describe('RBAC Permissions State Machine', function () {
     })
 
     it('refresh rbac index', async () => {
-      const refresh = await
-        statebox.startExecution(
-          {},
-          'tymly_rbacRefreshPermissions_1_0',
-          {
-            sendResponse: 'COMPLETE',
-            userId: adminUser
-          }
-        )
+      const refresh = await statebox.startExecution(
+        {},
+        'tymly_rbacRefreshPermissions_1_0',
+        {
+          sendResponse: 'COMPLETE',
+          userId: adminUser
+        }
+      )
       expect(refresh.status).to.eql('SUCCEEDED')
     })
 
