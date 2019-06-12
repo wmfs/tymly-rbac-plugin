@@ -1,3 +1,20 @@
+# [1.13.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.12.2...v1.13.0) (2019-06-12)
+
+
+### ✨ Features
+
+* added state resource+machine to grant role membership ([2397429](https://github.com/wmfs/tymly-rbac-plugin/commit/2397429))
+
+
+### 🚨 Tests
+
+* update expected tree ([425244d](https://github.com/wmfs/tymly-rbac-plugin/commit/425244d))
+
+
+### 💎 Styles
+
+* standard fix ([9755776](https://github.com/wmfs/tymly-rbac-plugin/commit/9755776))
+
 ## [1.12.2](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.12.1...v1.12.2) (2019-03-21)
 
 
