@@ -1,0 +1,8 @@
+{
+  "GrantRoleMembership": {
+    "Type": "Task",
+    "Resource": "module:grantRoleMembership",
+    "ResultPath": null,
+    "End": true
+  }
+}

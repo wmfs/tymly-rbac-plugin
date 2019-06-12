@@ -1,0 +1,29 @@
+{
+  "Comment": "Grants role membership",
+  "Version": "1.0",
+  "version": "1.0",
+
+  "StartAt": "Grant",
+  "States": {
+    "Grant": {
+      "Type": "Task",
+      "Resource": "module:grantRoleMembership",
+      "Parameters": {
+        "roleId.$": "$.roleId",
+        "memberId.$": "$.memberId",
+        "memberType.$": "$.memberType"
+      },
+      "ResultPath": null,
+      "End": true
+    }
+  },
+
+  "restrictions": [
+    {
+      "roleId": "tymly_rbacAdmin",
+      "allows": [
+        "*"
+      ]
+    }
+  ]
+}
