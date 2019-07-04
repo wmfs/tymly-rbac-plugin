@@ -1,7 +1,7 @@
 # tymly-rbac-plugin
 [![Tymly Plugin](https://img.shields.io/badge/tymly-plugin-blue.svg)](https://tymly.io/)
 [![npm (scoped)](https://img.shields.io/npm/v/@wmfs/tymly-rbac-plugin.svg)](https://www.npmjs.com/package/@wmfs/tymly-rbac-plugin)
-[![Build Status](https://travis-ci.org/wmfs/tymly-rbac-plugin.svg?branch=master)](https://travis-ci.org/wmfs/tymly-rbac-plugin)
+[![CircleCI](https://circleci.com/gh/wmfs/tymly-rbac-plugin.svg?style=svg)](https://circleci.com/gh/wmfs/tymly-rbac-plugin)
 [![codecov](https://codecov.io/gh/wmfs/tymly-rbac-plugin/branch/master/graph/badge.svg)](https://codecov.io/gh/wmfs/tymly-rbac-plugin)
 [![CodeFactor](https://www.codefactor.io/repository/github/wmfs/tymly-rbac-plugin/badge)](https://www.codefactor.io/repository/github/wmfs/tymly-rbac-plugin)
 [![Dependabot badge](https://img.shields.io/badge/Dependabot-active-brightgreen.svg)](https://dependabot.com/)
