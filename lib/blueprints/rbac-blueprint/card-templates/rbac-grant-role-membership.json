@@ -4,6 +4,15 @@
     "title": "Grant Role Membership",
     "category": "system"
   },
+  "hooks": {
+    "afterSubmit": {
+      "actions": [
+        {
+          "type": "Action.RefreshRemit"
+        }
+      ]
+    }
+  },
   "type": "AdaptiveCard",
   "body": [
     {
