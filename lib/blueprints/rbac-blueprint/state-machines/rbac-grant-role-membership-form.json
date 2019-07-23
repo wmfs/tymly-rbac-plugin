@@ -1,0 +1,50 @@
+{
+  "Comment": "Grants role membership",
+  "name": "Grants role membership",
+  "Version": "1.0",
+  "version": "1.0",
+  "categories": [
+    "system"
+  ],
+  "instigators": [
+    "user"
+  ],
+  "instigatorGroup": "form",
+  "StartAt": "AwaitingHumanInput",
+  "States": {
+    "AwaitingHumanInput": {
+      "Type": "Task",
+      "Resource": "module:awaitingHumanInput",
+      "ResourceConfig": {
+        "uiType": "form",
+        "uiName": "tymly_rbacGrantRoleMembership"
+      },
+      "Next": "Grant"
+    },
+    "Grant": {
+      "Type": "Task",
+      "Resource": "module:grantRoleMembership",
+      "Parameters": {
+        "roleId.$": "$.roleId",
+        "memberId.$": "$.memberId",
+        "memberType.$": "$.memberType"
+      },
+      "ResultPath": null,
+      "Next": "Refresh"
+    },
+    "Refresh": {
+      "Type": "Task",
+      "Resource": "module:refreshPermissions",
+      "ResultPath": null,
+      "End": true
+    }
+  },
+  "restrictions": [
+    {
+      "roleId": "tymly_rbacAdmin",
+      "allows": [
+        "*"
+      ]
+    }
+  ]
+}

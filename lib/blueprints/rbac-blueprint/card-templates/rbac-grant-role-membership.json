@@ -1,0 +1,55 @@
+{
+  "templateMeta": {
+    "name": "rbac-grant-role-membership",
+    "title": "Grant Role Membership",
+    "category": "system"
+  },
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "Jumbotron",
+      "title": "Grant Role Membership"
+    },
+    {
+      "type": "Input.ChoiceSet",
+      "title": "Role ID",
+      "id": "roleId",
+      "spacing": "medium",
+      "choices": { "$tymlyRef": "function:tymly_getTemplateRoles" },
+      "style": "compact",
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "type": "Input.Text",
+      "title": "Member ID",
+      "id": "memberId",
+      "spacing": "medium",
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "type": "Input.Text",
+      "title": "Member Type",
+      "id": "memberType",
+      "spacing": "medium",
+      "validation": {
+        "required": true
+      }
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Cancel",
+      "title": "Cancel"
+    },
+    {
+      "type": "Action.Submit",
+      "title": "Submit"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.0"
+}
