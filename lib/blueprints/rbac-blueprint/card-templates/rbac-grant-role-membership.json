@@ -23,8 +23,8 @@
     },
     {
       "type": "Input.ChoiceSet",
-      "title": "Member ID",
-      "id": "memberId",
+      "title": "Member Type",
+      "id": "memberType",
       "spacing": "medium",
       "choices": [
         {
@@ -43,8 +43,8 @@
     },
     {
       "type": "Input.Text",
-      "title": "Member Type",
-      "id": "memberType",
+      "title": "Member ID",
+      "id": "memberId",
       "spacing": "medium",
       "validation": {
         "required": true
