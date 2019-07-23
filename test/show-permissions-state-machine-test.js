@@ -39,7 +39,8 @@ describe('RBAC Permissions State Machine', function () {
     tymly.boot(
       {
         pluginPaths: [
-          path.resolve(__dirname, '../')
+          path.resolve(__dirname, '../'),
+          path.resolve(__dirname, './fixtures/plugins/test-plugin')
         ]
       },
       async (err, services) => {

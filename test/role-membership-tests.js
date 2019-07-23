@@ -67,7 +67,8 @@ for (const [label, setupFn] of [['user roles', userRoles], ['role membership', r
         tymly.boot(
           {
             pluginPaths: [
-              path.resolve(__dirname, '../')
+              path.resolve(__dirname, '../'),
+              path.resolve(__dirname, './fixtures/plugins/test-plugin')
             ],
             blueprintPaths: [
               path.resolve(__dirname, './fixtures/blueprints/website-blueprint')
@@ -174,7 +175,8 @@ describe('built in roles', () => {
       tymly.boot(
         {
           pluginPaths: [
-            path.resolve(__dirname, '../')
+            path.resolve(__dirname, '../'),
+            path.resolve(__dirname, './fixtures/plugins/test-plugin')
           ],
           blueprintPaths: [
             path.resolve(__dirname, './fixtures/blueprints/website-blueprint')

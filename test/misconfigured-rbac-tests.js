@@ -15,7 +15,8 @@ describe('Misconfig tests', function () {
       tymly.boot(
         {
           pluginPaths: [
-            path.resolve(__dirname, '../')
+            path.resolve(__dirname, '../'),
+            path.resolve(__dirname, './fixtures/plugins/test-plugin')
           ],
           blueprintPaths: [
             path.resolve(__dirname, './fixtures/blueprints/access-controlled-by-undefined-role-blueprint')
