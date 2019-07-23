@@ -1,3 +1,41 @@
+# [1.14.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.13.0...v1.14.0) (2019-07-23)
+
+
+### ✨ Features
+
+* add hook to refresh remit ([585dc8e](https://github.com/wmfs/tymly-rbac-plugin/commit/585dc8e))
+* allow to choose from user/role for member id ([377b140](https://github.com/wmfs/tymly-rbac-plugin/commit/377b140))
+* form to grant role membership ([0ad6922](https://github.com/wmfs/tymly-rbac-plugin/commit/0ad6922))
+
+
+### 🐛 Bug Fixes
+
+* order of role membership components ([f49ba1a](https://github.com/wmfs/tymly-rbac-plugin/commit/f49ba1a))
+
+
+### 🛠 Builds
+
+* **dev-deps:** update tymly to 1.95.0 ([269cebb](https://github.com/wmfs/tymly-rbac-plugin/commit/269cebb))
+
+
+### 📚 Documentation
+
+* add circleci status [skip ci] ([8280c6e](https://github.com/wmfs/tymly-rbac-plugin/commit/8280c6e))
+
+
+### 🚨 Tests
+
+* add awaiting human input stub ([aed3a7f](https://github.com/wmfs/tymly-rbac-plugin/commit/aed3a7f))
+* add system category to fixtures ([be0daa2](https://github.com/wmfs/tymly-rbac-plugin/commit/be0daa2))
+* require test plugin ([f4f9fde](https://github.com/wmfs/tymly-rbac-plugin/commit/f4f9fde))
+* update expected permission tree ([478d90f](https://github.com/wmfs/tymly-rbac-plugin/commit/478d90f))
+
+
+### ⚙️ Continuous Integrations
+
+* **circle:** Update CircleCI config - Travis migration ([f0dbe81](https://github.com/wmfs/tymly-rbac-plugin/commit/f0dbe81))
+* **travis:** remove Travis config ([dcbdb25](https://github.com/wmfs/tymly-rbac-plugin/commit/dcbdb25))
+
 # [1.13.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.12.2...v1.13.0) (2019-06-12)
 
 
