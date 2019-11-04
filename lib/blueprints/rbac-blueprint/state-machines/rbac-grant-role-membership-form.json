@@ -1,6 +1,6 @@
 {
-  "Comment": "Grants role membership",
-  "name": "Grants role membership",
+  "name": "Grants Role Membership",
+  "Comment": "Grants a Tymly Role Membership to a Member ID",
   "Version": "1.0",
   "version": "1.0",
   "categories": [

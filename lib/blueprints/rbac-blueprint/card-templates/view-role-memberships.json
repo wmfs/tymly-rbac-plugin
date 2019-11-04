@@ -1,0 +1,50 @@
+{
+  "templateMeta": {
+    "name": "view-role-memberships",
+    "title": "View Role Memberships",
+    "category": "system"
+  },
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "Jumbotron",
+      "title": "View Role Memberships"
+    },
+    {
+      "id": "roleMembershipsTable",
+      "type": "Table",
+      "arrayPath": "data.roleMemberships",
+      "columns": [
+        {
+          "title": "Role ID",
+          "field": "roleId"
+        },
+        {
+          "title": "Member ID",
+          "field": "memberId"
+        },
+        {
+          "title": "Member Type",
+          "field": "memberType"
+        },
+        {
+          "title": "Created By",
+          "field": "createdBy"
+        },
+        {
+          "title": "Created At",
+          "field": "created",
+          "format": "formatDate(item.created, 'DD MMM YYYY HH:mm')"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Cancel",
+      "title": "Cancel"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.0"
+}
