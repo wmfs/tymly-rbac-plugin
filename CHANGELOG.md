@@ -1,3 +1,20 @@
+# [1.15.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.14.0...v1.15.0) (2019-11-04)
+
+
+### ✨ Features
+
+* card to view role memberships ([](https://github.com/wmfs/tymly-rbac-plugin/commit/c7af627))
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dev dependancies ([](https://github.com/wmfs/tymly-rbac-plugin/commit/f903294))
+
+
+### 🚨 Tests
+
+* update for new state machine ([](https://github.com/wmfs/tymly-rbac-plugin/commit/d0f9d65))
+
 # [1.14.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.13.0...v1.14.0) (2019-07-23)
 
 
