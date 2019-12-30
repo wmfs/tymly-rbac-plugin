@@ -1,0 +1,12 @@
+{
+  "name": "rbac",
+  "version": "1.15.0",
+  "label": "RBAC",
+  "author": "Jez Higgins",
+  "organisation": "West Midlands Fire Service",
+  "description": "Tymly plugin to handle role based authentication",
+  "categories": [
+    "roles",
+    "authentication"
+  ]
+}
