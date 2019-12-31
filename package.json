@@ -23,7 +23,7 @@
     "dottie": "2.0.1"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "3.0.4",
+    "@semantic-release/changelog": "3.0.6",
     "@semantic-release/git": "7.0.18",
     "@wmfs/tymly": "1.103.3",
     "chai": "4.2.0",
