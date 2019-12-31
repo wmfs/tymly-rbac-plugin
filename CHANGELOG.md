@@ -1,3 +1,23 @@
+# [1.16.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.15.0...v1.16.0) (2019-12-31)
+
+
+### 🛠 Builds
+
+* **deps:** Bump dottie from 2.0.1 to 2.0.2 ([5b0d218](https://github.com/wmfs/tymly-rbac-plugin/commit/5b0d218210c60e103d92a02d225147e33d5624e4))
+* **deps-dev:** Bump [@semantic-release](https://github.com/semantic-release)/changelog from 3.0.4 to 3.0.6 ([4be3a37](https://github.com/wmfs/tymly-rbac-plugin/commit/4be3a37364452f3980063d86fcec3ebee5c4a6e2))
+* **deps-dev:** Bump [@semantic-release](https://github.com/semantic-release)/git from 7.0.16 to 7.0.18 ([f7abf8d](https://github.com/wmfs/tymly-rbac-plugin/commit/f7abf8d7a1760ae0b1e3447e9522d34353bee531))
+* **deps-dev:** Bump [@wmfs](https://github.com/wmfs)/tymly from 1.95.0 to 1.103.3 ([442d233](https://github.com/wmfs/tymly-rbac-plugin/commit/442d23360afa1603aacac3343d319b20ef6bf1a5))
+* **deps-dev:** Bump codecov from 3.5.0 to 3.6.1 ([a624387](https://github.com/wmfs/tymly-rbac-plugin/commit/a624387377b031991a2ec206d5f42a6661be6e39))
+* **deps-dev:** Bump conventional-changelog-metahub from 2.0.2 to 3.0.0 ([39f5e33](https://github.com/wmfs/tymly-rbac-plugin/commit/39f5e33f9372dc54e972782afad7a79983620913))
+* **deps-dev:** Bump mocha from 6.0.2 to 6.2.2 ([86ce606](https://github.com/wmfs/tymly-rbac-plugin/commit/86ce6068f547ce990d5dac586a724d2973d283c0))
+* **deps-dev:** Bump nyc from 14.1.1 to 15.0.0 ([28e36ac](https://github.com/wmfs/tymly-rbac-plugin/commit/28e36ac56f9b551d2e6220be1263a2bb21d6a5e8))
+* **deps-dev:** Bump semantic-release from 15.13.24 to 15.14.0 ([d62c33f](https://github.com/wmfs/tymly-rbac-plugin/commit/d62c33f2236b6590a0bcd94f1b7e9a39f9ac52a9))
+
+
+### ♻️ Chores
+
+* add plugin.json ([6f0479e](https://github.com/wmfs/tymly-rbac-plugin/commit/6f0479ebfb01eab824ce373a13efebe72240742c))
+
 # [1.15.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.14.0...v1.15.0) (2019-11-04)
 
 
