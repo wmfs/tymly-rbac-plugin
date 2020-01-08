@@ -19,7 +19,7 @@
   },
   "main": "./lib/index.js",
   "dependencies": {
-    "@wmfs/rbac": "1.6.5",
+    "@wmfs/rbac": "1.7.0",
     "dottie": "2.0.2"
   },
   "devDependencies": {
