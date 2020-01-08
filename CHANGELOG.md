@@ -1,3 +1,27 @@
+# [1.17.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.16.0...v1.17.0) (2020-01-08)
+
+
+### 🛠 Builds
+
+* **deps:** Bump [@wmfs](https://github.com/wmfs)/rbac from 1.6.5 to 1.7.0 ([2c7a010](https://github.com/wmfs/tymly-rbac-plugin/commit/2c7a01036f442f06e536be88b6486de83e3b7cd0))
+* **deps-dev:** add [@semantic-release](https://github.com/semantic-release)/exec ([760834a](https://github.com/wmfs/tymly-rbac-plugin/commit/760834a6984e33057a939661c06e16edd4d02a40))
+* **deps-dev:** Bump [@wmfs](https://github.com/wmfs)/tymly from 1.103.3 to 1.104.0 ([ec72c65](https://github.com/wmfs/tymly-rbac-plugin/commit/ec72c65c32ad6dd9b79f4753f84a4956ea68c3f4))
+* **deps-dev:** Bump [@wmfs](https://github.com/wmfs)/tymly from 1.104.0 to 1.105.0 ([afb4da0](https://github.com/wmfs/tymly-rbac-plugin/commit/afb4da0ccd63855520814251f71ebc3cfdceb182))
+* **deps-dev:** Bump [@wmfs](https://github.com/wmfs)/tymly from 1.105.0 to 1.106.0 ([0f03895](https://github.com/wmfs/tymly-rbac-plugin/commit/0f038955f1e8662da41700d629c329bd83594cf2))
+* **deps-dev:** Bump [@wmfs](https://github.com/wmfs)/tymly from 1.106.0 to 1.107.0 ([7996c1c](https://github.com/wmfs/tymly-rbac-plugin/commit/7996c1c8332a907c51dac2d6bf6c6d3368c0cfef))
+* **deps-dev:** Bump mocha from 6.2.2 to 7.0.0 ([3ed6316](https://github.com/wmfs/tymly-rbac-plugin/commit/3ed631628926dad35bd037ead8c5cb75527687bc))
+
+
+### ⚙️ Continuous Integrations
+
+* **circle:** update config ([a44da4c](https://github.com/wmfs/tymly-rbac-plugin/commit/a44da4c0773cc1378db125e6cfefa22ac4600949))
+
+
+### ♻️ Chores
+
+* add version_plugin script ([310860b](https://github.com/wmfs/tymly-rbac-plugin/commit/310860bee2c9a7dd1397bc6f06ffa95426c52082))
+* update .releaserc.json ([ba53054](https://github.com/wmfs/tymly-rbac-plugin/commit/ba5305440fca7d1e9996f74ccb3c2a22cc7df6fe))
+
 # [1.16.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.15.0...v1.16.0) (2019-12-31)
 
 
