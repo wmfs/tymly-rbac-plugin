@@ -148,7 +148,7 @@ for (const [label, setupFn] of [['user roles', userRoles], ['role membership', r
 
     if (label === 'user roles') {
       describe('clear user roles', () => {
-        it(`clear mommy roles`, async () => {
+        it('clear mommy roles', async () => {
           const roles = await rbac.listUserRoles('mommy')
           expect(roles.length).to.eql(4)
 

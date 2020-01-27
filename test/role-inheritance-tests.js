@@ -101,7 +101,7 @@ describe('Role Inheritance tests', function () {
         'space_cadet',
         'SpaceCadet',
         'From The Cosmos!',
-        [ 'tymlyTest_developer' ]
+        ['tymlyTest_developer']
       )
       await rbacAdmin.refreshRbacIndex()
     })
@@ -130,14 +130,14 @@ describe('Role Inheritance tests', function () {
         'space_cadet',
         'SpaceCadet',
         'To Infinity!',
-        [ 'tymlyTest_developer', 'tymlyTest_tymlyTestReadOnly' ]
+        ['tymlyTest_developer', 'tymlyTest_tymlyTestReadOnly']
       )
       await rbacAdmin.refreshRbacIndex()
     })
 
     it('describe space_cadet', async () => {
       const role = await rbacAdmin.describeRole('space_cadet')
-      expect(role.inherits).to.eql([ 'tymlyTest_developer', 'tymlyTest_tymlyTestReadOnly' ])
+      expect(role.inherits).to.eql(['tymlyTest_developer', 'tymlyTest_tymlyTestReadOnly'])
     })
 
     actionVerification(
@@ -159,7 +159,7 @@ describe('Role Inheritance tests', function () {
         'space_cadet',
         'SpaceCadet',
         'Ad Astra!',
-        [ 'tymlyTest_teamLeader' ]
+        ['tymlyTest_teamLeader']
       )
       await rbacAdmin.refreshRbacIndex()
     })
@@ -167,7 +167,7 @@ describe('Role Inheritance tests', function () {
     it('describe space_cadet', async () => {
       const role = await rbacAdmin.describeRole('space_cadet')
       expect(role.description).to.eql('Ad Astra!')
-      expect(role.inherits).to.eql([ 'tymlyTest_teamLeader' ])
+      expect(role.inherits).to.eql(['tymlyTest_teamLeader'])
     })
 
     actionVerification(
@@ -189,7 +189,7 @@ describe('Role Inheritance tests', function () {
         'dev_space_cadet',
         'SpaceCadet',
         'From The Cosmos!',
-        [ 'tymlyTest_developer', '$authenticated' ]
+        ['tymlyTest_developer', '$authenticated']
       )
       const dsc = await rbacAdmin.describeRole('dev_space_cadet')
       expect(dsc.inherits).to.eql(['tymlyTest_developer'])
@@ -198,7 +198,7 @@ describe('Role Inheritance tests', function () {
         'base_cadet',
         'SpaceCadet',
         'From The Cosmos!',
-        [ '$authenticated' ]
+        ['$authenticated']
       )
       const bc = await rbacAdmin.describeRole('base_cadet')
       expect(bc.inherits).to.eql([])
@@ -210,7 +210,7 @@ describe('Role Inheritance tests', function () {
           '$space_cadet',
           'SpaceCadet',
           'From The Cosmos!',
-          [ 'tymlyTest_developer' ]
+          ['tymlyTest_developer']
         )
       ).to.eventually.be.rejected()
     })
@@ -220,7 +220,7 @@ describe('Role Inheritance tests', function () {
         'giant_egg',
         'Giant Egg',
         'Ostrich',
-        [ ]
+        []
       )
 
       expect(
@@ -228,7 +228,7 @@ describe('Role Inheritance tests', function () {
           'giant_egg',
           'A Big Egg',
           'Out of the nether end of an apatosaurus',
-          [ ]
+          []
         )
       ).eventually.be.rejected()
     })
@@ -239,7 +239,7 @@ describe('Role Inheritance tests', function () {
           'sugar-plum-fairy',
           'Dancing and Leaping',
           'From The Brain of Pyotr Ilyich Tchaikovsky!',
-          [ 'tymlyTest_developer' ]
+          ['tymlyTest_developer']
         )
       ).to.eventually.be.rejected()
     })
