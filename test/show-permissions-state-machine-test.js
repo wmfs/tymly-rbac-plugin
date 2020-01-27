@@ -33,10 +33,10 @@ describe('RBAC Permissions State Machine', function () {
         '*': ['tymly_rbacAdmin']
       },
       tymly_rbacGrantRoleMembershipForm_1_0: {
-        '*': [ 'tymly_rbacAdmin' ]
+        '*': ['tymly_rbacAdmin']
       },
       tymly_viewRoleMemberships_1_0: {
-        '*': [ 'tymly_rbacAdmin' ]
+        '*': ['tymly_rbacAdmin']
       }
     }
   }
@@ -76,7 +76,7 @@ describe('RBAC Permissions State Machine', function () {
 
       expect(roles.status).to.eql('SUCCEEDED')
       expect(roles.ctx.roles).to.eql({
-        'tymly_rbacAdmin': {
+        tymly_rbacAdmin: {
           label: 'rbac-admin',
           description: 'RBAC administrator',
           inherits: []
@@ -113,12 +113,12 @@ describe('RBAC Permissions State Machine', function () {
 
       expect(roles.status).to.eql('SUCCEEDED')
       expect(roles.ctx.roles).to.eql({
-        'tymly_rbacAdmin': {
+        tymly_rbacAdmin: {
           label: 'rbac-admin',
           description: 'RBAC administrator',
           inherits: []
         },
-        'fsOfficer': {
+        fsOfficer: {
           label: 'fs-officer',
           description: 'Fire Safety Officer',
           inherits: []
