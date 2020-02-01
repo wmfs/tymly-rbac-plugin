@@ -29,7 +29,7 @@
     "@wmfs/tymly": "1.118.0",
     "chai": "4.2.0",
     "chai-as-promised": "7.1.1",
-    "codecov": "3.6.3",
+    "codecov": "3.6.4",
     "conventional-changelog-metahub": "4.0.0",
     "cz-conventional-changelog": "3.1.0",
     "dirty-chai": "2.0.1",
