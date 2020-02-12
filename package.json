@@ -25,7 +25,7 @@
   "devDependencies": {
     "@semantic-release/changelog": "5.0.0",
     "@semantic-release/git": "7.0.18",
-    "@semantic-release/exec": "3.3.8",
+    "@semantic-release/exec": "5.0.0",
     "@wmfs/tymly": "1.119.0",
     "chai": "4.2.0",
     "chai-as-promised": "7.1.1",
