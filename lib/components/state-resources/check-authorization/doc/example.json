@@ -1,0 +1,8 @@
+{
+  "CheckAuthorization": {
+    "Type": "Task",
+    "Resource": "module:checkAuthorization",
+    "ResultPath": null,
+    "End": true
+  }
+}

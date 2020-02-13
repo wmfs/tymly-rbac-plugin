@@ -1,0 +1,25 @@
+{
+  "Comment": "Check Authorization",
+  "Version": "1.0",
+  "version": "1.0",
+  "StartAt": "CheckAuthorization",
+  "States": {
+    "CheckAuthorization": {
+      "Type": "Task",
+      "Resource": "module:checkAuthorization",
+      "Parameters": {
+        "roleId.$": "$.roleId",
+        "stateMachineName.$": "$.stateMachineName"
+      },
+      "End": true
+    }
+  },
+  "restrictions": [
+    {
+      "roleId": "$everyone",
+      "allows": [
+        "*"
+      ]
+    }
+  ]
+}
