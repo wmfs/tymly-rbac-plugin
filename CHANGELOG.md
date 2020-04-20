@@ -1,3 +1,10 @@
+## [1.17.2](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.17.1...v1.17.2) (2020-04-20)
+
+
+### 🐛 Bug Fixes
+
+* **state-resource:** Removed callback parameter from init method. ([1ccb96a](https://github.com/wmfs/tymly-rbac-plugin/commit/1ccb96a8cd93b02fbfbb91ecd1c966de01dd8739))
+
 ## [1.17.1](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.17.0...v1.17.1) (2020-04-20)
 
 
