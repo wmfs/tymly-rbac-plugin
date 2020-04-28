@@ -98,8 +98,8 @@ describe('Statebox service RBAC authorisation', function () {
   let rbacAdmin
 
   describe('setup', () => {
-    it('boot Tymly', function (done) {
-      tymly.boot(
+    it('boot Tymly', async () => {
+      const tymlyServices = await tymly.boot(
         {
           blueprintPaths: [
             path.resolve(__dirname, './fixtures/blueprints/access-controlled-blueprint')
@@ -110,19 +110,14 @@ describe('Statebox service RBAC authorisation', function () {
             path.resolve(__dirname, './fixtures/plugins/heartbeat-plugin'),
             path.resolve(__dirname, './fixtures/plugins/test-plugin')
           ]
-        },
-        function (err, tymlyServices) {
-          if (err) return done(err)
-          tymlyService = tymlyServices.tymly
-          statebox = tymlyServices.statebox
-          rbac = tymlyServices.rbac
-          rbacAdmin = tymlyServices.rbacAdmin
-
-          rbac.debug()
-
-          done()
         }
       )
+
+      tymlyService = tymlyServices.tymly
+      statebox = tymlyServices.statebox
+      rbac = tymlyServices.rbac
+      rbacAdmin = tymlyServices.rbacAdmin
+      rbac.debug()
     })
 
     it('grant \'admin\' permission to \'administrator\'', async () => {

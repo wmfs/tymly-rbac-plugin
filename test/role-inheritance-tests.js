@@ -16,8 +16,8 @@ describe('Role Inheritance tests', function () {
   let rbacAdmin
 
   describe('setup', () => {
-    it('fire up Tymly', function (done) {
-      tymly.boot(
+    it('fire up Tymly', async () => {
+      const tymlyServices = await tymly.boot(
         {
           pluginPaths: [
             path.resolve(__dirname, '../'),
@@ -31,16 +31,13 @@ describe('Role Inheritance tests', function () {
               userMemberships: { max: 500 }
             }
           }
-        },
-        function (err, tymlyServices) {
-          expect(err).to.eql(null)
-          tymlyService = tymlyServices.tymly
-          rbac = tymlyServices.rbac
-          rbac.debug()
-          rbacAdmin = tymlyServices.rbacAdmin
-          done()
         }
       )
+
+      tymlyService = tymlyServices.tymly
+      rbac = tymlyServices.rbac
+      rbac.debug()
+      rbacAdmin = tymlyServices.rbacAdmin
     })
 
     it('set up roles', async () => {
