@@ -41,26 +41,21 @@ describe('RBAC Permissions State Machine', function () {
     }
   }
 
-  before('boot Tymly', done => {
-    tymly.boot(
+  before('boot Tymly', async () => {
+    const tymlyServices = await tymly.boot(
       {
         pluginPaths: [
           path.resolve(__dirname, '../'),
           path.resolve(__dirname, './fixtures/plugins/test-plugin')
         ]
-      },
-      async (err, services) => {
-        if (err) return done(err)
-
-        tymlyService = services.tymly
-        statebox = services.statebox
-
-        await services.rbacAdmin.ensureUserRoles(adminUser, ['tymly_rbacAdmin'])
-        services.rbac.debug()
-
-        done()
       }
     )
+
+    tymlyService = tymlyServices.tymly
+    statebox = tymlyServices.statebox
+
+    await tymlyServices.rbacAdmin.ensureUserRoles(adminUser, ['tymly_rbacAdmin'])
+    tymlyServices.rbac.debug()
   })
 
   describe('list and create roles', () => {

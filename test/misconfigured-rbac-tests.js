@@ -11,8 +11,8 @@ describe('Misconfig tests', function () {
   let rbac
 
   describe('setup', () => {
-    it('fire up Tymly', function (done) {
-      tymly.boot(
+    it('fire up Tymly', async () => {
+      const tymlyServices = await tymly.boot(
         {
           pluginPaths: [
             path.resolve(__dirname, '../'),
@@ -27,15 +27,12 @@ describe('Misconfig tests', function () {
               userMemberships: { max: 500 }
             }
           }
-        },
-        function (err, tymlyServices) {
-          expect(err).to.eql(null)
-          tymlyService = tymlyServices.tymly
-          rbac = tymlyServices.rbac
-          rbac.debug()
-          done()
         }
       )
+
+      tymlyService = tymlyServices.tymly
+      rbac = tymlyServices.rbac
+      rbac.debug()
     })
   })
 
