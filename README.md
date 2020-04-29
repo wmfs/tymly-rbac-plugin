@@ -20,7 +20,7 @@ $ npm install tymly-rbac-plugin --save
 
 Add to your list of Tymly plugin's using 
 ```
-tymly.boot({
+await tymly.boot({
   blueprintPaths: [
     ...
   ],
