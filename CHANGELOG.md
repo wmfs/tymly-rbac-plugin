@@ -1,3 +1,34 @@
+## [1.17.3](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.17.2...v1.17.3) (2020-05-05)
+
+
+### 🐛 Bug Fixes
+
+* **rbac-service:** Remove redundant boot callback parameter ([b689fa0](https://github.com/wmfs/tymly-rbac-plugin/commit/b689fa072d2d131cfedf945804df1904c076bdac))
+
+
+### 🛠 Builds
+
+* **deps-dev:** Bump [@wmfs](https://github.com/wmfs)/tymly from 1.135.1 to 1.135.2 ([1d590ef](https://github.com/wmfs/tymly-rbac-plugin/commit/1d590efa683043a883a2269e1d9c2fd0fede9679))
+* **deps-dev:** Bump [@wmfs](https://github.com/wmfs)/tymly from 1.135.2 to 1.136.0 ([8edb6b8](https://github.com/wmfs/tymly-rbac-plugin/commit/8edb6b81f0965ce0ee73c8f0283e95dd53b8e7d0))
+* **deps-dev:** Bump [@wmfs](https://github.com/wmfs)/tymly from 1.136.0 to 1.137.0 ([2c18be0](https://github.com/wmfs/tymly-rbac-plugin/commit/2c18be083b8d4fe97a507551a6a0bbb1760fb492))
+* **deps-dev:** Bump [@wmfs](https://github.com/wmfs)/tymly from 1.137.0 to 1.137.1 ([fd18487](https://github.com/wmfs/tymly-rbac-plugin/commit/fd18487302cd491e3779dd7a3c9485af9d360fd5))
+* **deps-dev:** Bump [@wmfs](https://github.com/wmfs)/tymly from 1.137.1 to 1.137.2 ([7db4541](https://github.com/wmfs/tymly-rbac-plugin/commit/7db454162b981e80ec96cc7b3c59cee0ccb6d1c9))
+* **deps-dev:** Bump cz-conventional-changelog from 3.1.0 to 3.1.1 ([6ea4b7c](https://github.com/wmfs/tymly-rbac-plugin/commit/6ea4b7c60863f9a4af8985c7017da462b69fb8b6))
+* **deps-dev:** Bump cz-conventional-changelog from 3.1.1 to 3.2.0 ([c49d05e](https://github.com/wmfs/tymly-rbac-plugin/commit/c49d05e588a8da69e6aa51f0385ef3c1a3b1664f))
+* **deps-dev:** Bump mocha from 7.1.1 to 7.1.2 ([578fd6a](https://github.com/wmfs/tymly-rbac-plugin/commit/578fd6a35a551be94aff26ad98e5f14a65e7232d))
+* **deps-dev:** Bump semantic-release from 17.0.6 to 17.0.7 ([2e189e8](https://github.com/wmfs/tymly-rbac-plugin/commit/2e189e875f3d291278450d3b9b513e771e704b25))
+
+
+### 📦 Code Refactoring
+
+* **test:** Switch tymly.boot from callback style to async/await ([aada534](https://github.com/wmfs/tymly-rbac-plugin/commit/aada534015307bfc6306a838f07ef1ddb050d033))
+* **tests:** Flip tymly.boot from callback style to async/await ([82e5f18](https://github.com/wmfs/tymly-rbac-plugin/commit/82e5f18a082a462827d90731840770a35380cd89))
+
+
+### 🚨 Tests
+
+* test: Remove done callback from Heartbeat.run ([f8bc636](https://github.com/wmfs/tymly-rbac-plugin/commit/f8bc636b0efd16211636ff6342925973c64919ec))
+
 ## [1.17.2](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.17.1...v1.17.2) (2020-04-20)
 
 
