@@ -1,0 +1,43 @@
+{
+  "templateMeta": {
+    "name": "remove-role-membership",
+    "title": "Remove Role Membership",
+    "category": "system"
+  },
+  "hooks": {
+    "afterSubmit": {
+      "actions": [
+        {
+          "type": "Action.RefreshRemit"
+        }
+      ]
+    }
+  },
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "Jumbotron",
+      "title": "Remove Role Membership",
+      "subtitle": "{{ data.roleId }} - {{ data.memberId }} - {{ data.memberType }}"
+    },
+    {
+      "type": "TextBlock",
+      "spacing": "large",
+      "size": "medium",
+      "wrap": true,
+      "text": "Are you sure you want to remove this role membership?"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Cancel",
+      "title": "No"
+    },
+    {
+      "type": "Action.Submit",
+      "title": "Yes"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.0"
+}

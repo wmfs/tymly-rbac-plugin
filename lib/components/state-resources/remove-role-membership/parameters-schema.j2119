@@ -1,0 +1,4 @@
+This document specifies a JSON object called a "Role Membership Removal".
+A Role Membership Removal MUST have a string field named "roleId".
+A Role Membership Removal MUST have a string field named "memberId".
+A Role Membership Removal MUST have a string-array field named "memberType".

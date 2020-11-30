@@ -13,6 +13,7 @@
     {
       "id": "roleMembershipsTable",
       "type": "Table",
+      "showLaunches": true,
       "arrayPath": "data.roleMemberships",
       "columns": [
         {
