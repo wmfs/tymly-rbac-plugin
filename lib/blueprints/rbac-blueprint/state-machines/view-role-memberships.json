@@ -19,6 +19,14 @@
         "modelId": "tymly_roleMembership"
       },
       "ResultPath": "$.roleMemberships",
+      "Next": "ApplyLaunches"
+    },
+    "ApplyLaunches": {
+      "Type": "Task",
+      "Resource": "module:runFunction",
+      "ResourceConfig": {
+        "functionName": "roleMembershipsApplyLaunches"
+      },
       "Next": "AwaitingHumanInput"
     },
     "AwaitingHumanInput": {

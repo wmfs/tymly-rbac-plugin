@@ -1,0 +1,46 @@
+{
+  "name": "Remove Role Membership",
+  "Comment": "Remove a Tymly Role Membership from a Member ID",
+  "Version": "1.0",
+  "version": "1.0",
+  "categories": [
+    "system"
+  ],
+  "StartAt": "AwaitingHumanInput",
+  "States": {
+    "AwaitingHumanInput": {
+      "Type": "Task",
+      "Resource": "module:awaitingHumanInput",
+      "ResourceConfig": {
+        "uiType": "form",
+        "uiName": "tymly_removeRoleMembership"
+      },
+      "Next": "Remove"
+    },
+    "Remove": {
+      "Type": "Task",
+      "Resource": "module:removeRoleMembership",
+      "Parameters": {
+        "roleId.$": "$.roleId",
+        "memberId.$": "$.memberId",
+        "memberType.$": "$.memberType"
+      },
+      "ResultPath": null,
+      "Next": "Refresh"
+    },
+    "Refresh": {
+      "Type": "Task",
+      "Resource": "module:refreshPermissions",
+      "ResultPath": null,
+      "End": true
+    }
+  },
+  "restrictions": [
+    {
+      "roleId": "tymly_rbacAdmin",
+      "allows": [
+        "*"
+      ]
+    }
+  ]
+}

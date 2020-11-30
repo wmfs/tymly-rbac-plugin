@@ -1,0 +1,8 @@
+{
+  "RemoveRoleMembership": {
+    "Type": "Task",
+    "Resource": "module:removeRoleMembership",
+    "ResultPath": null,
+    "End": true
+  }
+}
