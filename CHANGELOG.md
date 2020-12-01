@@ -1,3 +1,10 @@
+## [1.18.1](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.18.0...v1.18.1) (2020-12-01)
+
+
+### 🐛 Bug Fixes
+
+* convert member id to email to view ([5dcc6e8](https://github.com/wmfs/tymly-rbac-plugin/commit/5dcc6e81ff2aa86146c0458905313e5c341a42b3))
+
 # [1.18.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.17.3...v1.18.0) (2020-11-30)
 
 
