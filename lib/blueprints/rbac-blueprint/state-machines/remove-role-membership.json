@@ -13,7 +13,8 @@
       "Resource": "module:awaitingHumanInput",
       "ResourceConfig": {
         "uiType": "form",
-        "uiName": "tymly_removeRoleMembership"
+        "uiName": "tymly_removeRoleMembership",
+        "dataPath": "$"
       },
       "Next": "Remove"
     },

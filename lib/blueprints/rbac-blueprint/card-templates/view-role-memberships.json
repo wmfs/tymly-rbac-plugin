@@ -25,6 +25,10 @@
           "field": "memberId"
         },
         {
+          "title": "Member Email",
+          "field": "memberEmail"
+        },
+        {
           "title": "Member Type",
           "field": "memberType"
         },
