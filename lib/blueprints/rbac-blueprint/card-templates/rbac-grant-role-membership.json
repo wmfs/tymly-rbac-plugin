@@ -45,7 +45,7 @@
           "value": "role"
         }
       ],
-      "style": "compact",
+      "style": "expanded",
       "validation": {
         "required": true
       }

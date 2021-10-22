@@ -1,0 +1,9 @@
+{
+  "type": "Action.PushCard",
+  "title": "Grant role membership",
+  "stateMachineName": "tymly_rbacGrantRoleMembershipForm",
+  "input": {
+    "memberId": "$.userId",
+    "memberType": "user"
+  }
+}

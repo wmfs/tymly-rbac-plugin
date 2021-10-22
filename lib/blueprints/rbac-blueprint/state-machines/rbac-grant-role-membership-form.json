@@ -17,7 +17,8 @@
       "Resource": "module:awaitingHumanInput",
       "ResourceConfig": {
         "uiType": "form",
-        "uiName": "tymly_rbacGrantRoleMembership"
+        "uiName": "tymly_rbacGrantRoleMembership",
+        "dataPath": "$"
       },
       "Next": "Grant"
     },
