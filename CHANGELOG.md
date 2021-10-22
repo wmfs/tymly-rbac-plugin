@@ -1,3 +1,61 @@
+# [1.19.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.18.1...v1.19.0) (2021-10-22)
+
+
+### ✨ Features
+
+* action to grant role membership from auth0 user dashboard ([48a1b0c](https://github.com/wmfs/tymly-rbac-plugin/commit/48a1b0c610058cf867ed985e874ead02040a35ef))
+
+
+### 🛠 Builds
+
+* **deps-dev:** Bump chai from 4.2.0 to 4.3.0 ([81bf188](https://github.com/wmfs/tymly-rbac-plugin/commit/81bf188720aba228e17722878b01827ff7eda7e5))
+* **deps-dev:** Bump chai from 4.3.0 to 4.3.1 ([ea296b9](https://github.com/wmfs/tymly-rbac-plugin/commit/ea296b94df394f44268a9bfd8124fcefc1ef98ce))
+* **deps-dev:** Bump chai from 4.3.1 to 4.3.2 ([c455d9f](https://github.com/wmfs/tymly-rbac-plugin/commit/c455d9f0a13d3a74844cbf52164f210911404e6e))
+* **deps-dev:** Bump chai from 4.3.2 to 4.3.3 ([c125fca](https://github.com/wmfs/tymly-rbac-plugin/commit/c125fca9d06ef08bdcb2abf3bb61b6216fb149e6))
+* **deps-dev:** Bump chai from 4.3.3 to 4.3.4 ([9c535be](https://github.com/wmfs/tymly-rbac-plugin/commit/9c535be8700b53de28062546b80112e1fd2df215))
+* **deps-dev:** Bump codecov from 3.8.1 to 3.8.2 ([6dabb4d](https://github.com/wmfs/tymly-rbac-plugin/commit/6dabb4df01bc1657b5e6da3a3f6b69ae22b535b9))
+* **deps-dev:** Bump codecov from 3.8.2 to 3.8.3 ([2188eeb](https://github.com/wmfs/tymly-rbac-plugin/commit/2188eeb7c62c1fa6375c16ef3b3c7e08c4d3d0d3))
+* **deps-dev:** Bump mocha from 8.2.1 to 8.3.0 ([276fb91](https://github.com/wmfs/tymly-rbac-plugin/commit/276fb91750e12761fc7bd4c36119faf28ede220e))
+* **deps-dev:** Bump mocha from 8.3.0 to 8.3.1 ([842b268](https://github.com/wmfs/tymly-rbac-plugin/commit/842b2684cf82da4725bcedfd90c8312251640a7a))
+* **deps-dev:** Bump mocha from 8.3.1 to 8.3.2 ([512b523](https://github.com/wmfs/tymly-rbac-plugin/commit/512b5233375dc3adfd639c4e993c497adca26eb0))
+* **deps-dev:** Bump mocha from 8.3.2 to 8.4.0 ([fe70f23](https://github.com/wmfs/tymly-rbac-plugin/commit/fe70f23177274eddef08be7ff0e9ba5bfc85b203))
+* **deps-dev:** Bump mocha from 8.4.0 to 9.0.0 ([3cb17b4](https://github.com/wmfs/tymly-rbac-plugin/commit/3cb17b4cee26e090d9079319766eca9980e9e665))
+* **deps-dev:** Bump mocha from 9.0.0 to 9.0.1 ([5f8a617](https://github.com/wmfs/tymly-rbac-plugin/commit/5f8a617a83798bf50f786ffe73a870741f6e7f70))
+* **deps-dev:** Bump mocha from 9.0.1 to 9.0.2 ([86673c0](https://github.com/wmfs/tymly-rbac-plugin/commit/86673c09c844a6d14258397f6e2f972449042af7))
+* **deps-dev:** Bump mocha from 9.0.2 to 9.0.3 ([b379244](https://github.com/wmfs/tymly-rbac-plugin/commit/b3792441740c85295144844f62f21d7d933507ee))
+* **deps-dev:** Bump semantic-release from 17.3.0 to 17.3.1 ([c7a6123](https://github.com/wmfs/tymly-rbac-plugin/commit/c7a61238ced47445683ed344a82bb9fdbbefa674))
+* **deps-dev:** Bump semantic-release from 17.3.1 to 17.3.2 ([809d94b](https://github.com/wmfs/tymly-rbac-plugin/commit/809d94bb2f107082e361f031d15c701536052757))
+* **deps-dev:** Bump semantic-release from 17.3.2 to 17.3.3 ([21c887e](https://github.com/wmfs/tymly-rbac-plugin/commit/21c887e2627c61d8fea48b974e8d8392c18bd68d))
+* **deps-dev:** Bump semantic-release from 17.3.3 to 17.3.4 ([1a0cb44](https://github.com/wmfs/tymly-rbac-plugin/commit/1a0cb44fd1196a29064600b362339c4597a36657))
+* **deps-dev:** Bump semantic-release from 17.3.4 to 17.3.5 ([45cd7eb](https://github.com/wmfs/tymly-rbac-plugin/commit/45cd7ebb150e110fec9162be8884eacefa5fa409))
+* **deps-dev:** Bump semantic-release from 17.3.5 to 17.3.6 ([1c19064](https://github.com/wmfs/tymly-rbac-plugin/commit/1c190646508d20d98e5658af1d05ce68be16d947))
+* **deps-dev:** Bump semantic-release from 17.3.6 to 17.3.7 ([d911b04](https://github.com/wmfs/tymly-rbac-plugin/commit/d911b0421b597c6b8a7625b6ad3396429ed1b435))
+* **deps-dev:** Bump semantic-release from 17.3.7 to 17.3.8 ([857a9d4](https://github.com/wmfs/tymly-rbac-plugin/commit/857a9d4d1392c1d374b5747df0d1783e71c78c56))
+* **deps-dev:** Bump semantic-release from 17.3.8 to 17.3.9 ([c41ba21](https://github.com/wmfs/tymly-rbac-plugin/commit/c41ba21c9fb294a2f1b4d0ab6cc3ba305100ae86))
+* **deps-dev:** Bump semantic-release from 17.3.9 to 17.4.0 ([695449c](https://github.com/wmfs/tymly-rbac-plugin/commit/695449c8ef3efaede10e46eb37514897d4b051ef))
+* **deps-dev:** Bump semantic-release from 17.4.0 to 17.4.1 ([9cfa12b](https://github.com/wmfs/tymly-rbac-plugin/commit/9cfa12bc9c2a8bdcff05712e19424432b6e29fb6))
+* **deps-dev:** Bump semantic-release from 17.4.1 to 17.4.2 ([ced80f7](https://github.com/wmfs/tymly-rbac-plugin/commit/ced80f7b323e2e1489838700d859a6d30fe1577e))
+* **deps-dev:** Bump semantic-release from 17.4.2 to 17.4.3 ([2a91142](https://github.com/wmfs/tymly-rbac-plugin/commit/2a911428e0e81bdacef028de63bcc49cae731374))
+* **deps-dev:** Bump semantic-release from 17.4.3 to 17.4.4 ([77ab9c5](https://github.com/wmfs/tymly-rbac-plugin/commit/77ab9c5549f6d5c7449190901adad748083a7b04))
+* **deps-dev:** update dependency [@semantic-release](https://github.com/semantic-release)/changelog to v6 ([56128f5](https://github.com/wmfs/tymly-rbac-plugin/commit/56128f586f61c75fa25ea394412a46a14a414228))
+* **deps-dev:** update dependency [@semantic-release](https://github.com/semantic-release)/exec to v6 ([ad917c0](https://github.com/wmfs/tymly-rbac-plugin/commit/ad917c0db0dd95e48ad2bf53bdb69523f08e2c7a))
+* **deps-dev:** update dependency [@semantic-release](https://github.com/semantic-release)/git to v10 ([6bf158d](https://github.com/wmfs/tymly-rbac-plugin/commit/6bf158d14c13f6d82d0124eaca1ba895c47c3d08))
+* **deps-dev:** update dependency [@semantic-release](https://github.com/semantic-release)/git to v9.0.1 ([86a6368](https://github.com/wmfs/tymly-rbac-plugin/commit/86a636869b4c08d5541ededf78ca8ef186ecbf23))
+* **deps-dev:** update dependency mocha to v9.1.0 ([95c731d](https://github.com/wmfs/tymly-rbac-plugin/commit/95c731d26e8a77afa3b011857c086a78e6d4286b))
+* **deps-dev:** update dependency mocha to v9.1.1 ([714c253](https://github.com/wmfs/tymly-rbac-plugin/commit/714c253770617c9ee7945361119b030f1e74a966))
+* **deps-dev:** update dependency mocha to v9.1.2 ([c5df350](https://github.com/wmfs/tymly-rbac-plugin/commit/c5df35026fac4315e9da3c12518b7b3751fc3ce0))
+* **deps-dev:** update dependency mocha to v9.1.3 ([d52eb25](https://github.com/wmfs/tymly-rbac-plugin/commit/d52eb2592191596076c3f5c93db1ed9986dfe0d6))
+* **deps-dev:** update dependency semantic-release to v17.4.5 ([0bf6f7c](https://github.com/wmfs/tymly-rbac-plugin/commit/0bf6f7c06815a98b280c0f238b52e803ad4dca93))
+* **deps-dev:** update dependency semantic-release to v17.4.6 ([2bb154c](https://github.com/wmfs/tymly-rbac-plugin/commit/2bb154c1e36554bcc842f78d1dc370a5a324764a))
+* **deps-dev:** update dependency semantic-release to v17.4.7 ([24bec7f](https://github.com/wmfs/tymly-rbac-plugin/commit/24bec7f5125147a766555487da2a71d3c1410233))
+* **deps-dev:** update dependency semantic-release to v18 ([cc10931](https://github.com/wmfs/tymly-rbac-plugin/commit/cc10931103fc38087b87fb9a71d4f538a20eafea))
+* **deps-dev:** update dependency standard to v16.0.4 ([742c79c](https://github.com/wmfs/tymly-rbac-plugin/commit/742c79c6aa8a4f4220799ff15513427130917e7d))
+
+
+### ♻️ Chores
+
+* add renovate config [ch6600] ([53efb82](https://github.com/wmfs/tymly-rbac-plugin/commit/53efb8207e95a36d0b69a4411ffb6eb9f3fd2d73))
+
 ## [1.18.1](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.18.0...v1.18.1) (2020-12-01)
 
 
