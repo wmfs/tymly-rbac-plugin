@@ -12,22 +12,6 @@
   "instigatorGroup": "app",
   "StartAt": "AwaitingHumanInput",
   "States": {
-    "GetData": {
-      "Type": "Task",
-      "Resource": "module:finding",
-      "ResourceConfig": {
-        "modelId": "tymly_permission"
-      },
-      "ResultPath": "$.permissions",
-      "Next": "FormatData"
-    },
-    "FormatData": {
-      "Type": "Task",
-      "InputPath": "$.permissions",
-      "Resource": "function:tymly_formatPermissionData",
-      "ResultPath": "$.permissions",
-      "Next": "AwaitingHumanInput"
-    },
     "AwaitingHumanInput": {
       "Type": "Task",
       "Resource": "module:awaitingHumanInput",

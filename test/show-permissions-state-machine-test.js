@@ -40,6 +40,12 @@ describe('RBAC Permissions State Machine', function () {
       },
       tymly_viewRoleMemberships_1_0: {
         '*': ['tymly_rbacAdmin']
+      },
+      tymly_searchPermissions_1_0: {
+        '*': ['tymly_rbacAdmin']
+      },
+      tymly_viewPermissions_1_0: {
+        '*': ['tymly_rbacAdmin']
       }
     }
   }
