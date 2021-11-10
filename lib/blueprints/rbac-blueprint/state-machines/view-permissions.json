@@ -1,0 +1,50 @@
+{
+  "name": "View Permissions",
+  "Comment": "View which Tymly roles can access state machines",
+  "Version": "1.0",
+  "version": "1.0",
+  "categories": [
+    "system"
+  ],
+  "instigators": [
+    "user"
+  ],
+  "instigatorGroup": "app",
+  "StartAt": "GetData",
+  "States": {
+    "GetData": {
+      "Type": "Task",
+      "Resource": "module:finding",
+      "ResourceConfig": {
+        "modelId": "tymly_permission"
+      },
+      "ResultPath": "$.permissions",
+      "Next": "FormatData"
+    },
+    "FormatData": {
+      "Type": "Task",
+      "InputPath": "$.permissions",
+      "Resource": "function:tymly_formatPermissionData",
+      "ResultPath": "$.permissions",
+      "Next": "AwaitingHumanInput"
+    },
+    "AwaitingHumanInput": {
+      "Type": "Task",
+      "Resource": "module:awaitingHumanInput",
+      "ResourceConfig": {
+        "uiType": "form",
+        "uiName": "tymly_viewPermissions",
+        "dataPath": "$"
+      },
+      "End": true
+    }
+  },
+  "restrictions": [
+    {
+      "roleId": "tymly_rbacAdmin",
+      "allows": [
+        "*"
+      ]
+    }
+  ]
+}
