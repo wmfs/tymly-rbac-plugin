@@ -1,3 +1,23 @@
+# [1.20.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.19.0...v1.20.0) (2021-11-10)
+
+
+### ✨ Features
+
+* view state machine permissions (state machine and roles) ([4ce3068](https://github.com/wmfs/tymly-rbac-plugin/commit/4ce3068bbe0131ff42167229e09ad9e210118644))
+* view/search state machine permissions ([b6d9820](https://github.com/wmfs/tymly-rbac-plugin/commit/b6d98208fa1675115fff1a977855000670dc5a6a))
+* view/search state machine permissions ([5de9037](https://github.com/wmfs/tymly-rbac-plugin/commit/5de9037f73042c7f093266f57e08992c5e227eb2))
+
+
+### 🛠 Builds
+
+* **deps-dev:** update semantic-release monorepo ([1407118](https://github.com/wmfs/tymly-rbac-plugin/commit/14071186a847718f57f8e9923b03f30346d1b884))
+
+
+### ⚙️ Continuous Integrations
+
+* **circle:** add build-env-vars context [sc-11392] ([170334c](https://github.com/wmfs/tymly-rbac-plugin/commit/170334c36cb4b60edc49055ef57bc5fdc6eff7a6))
+* **circle:** update npm install command [sc-11392] ([34cf3f5](https://github.com/wmfs/tymly-rbac-plugin/commit/34cf3f55011f3ec052bf5af483679ea47dfe864a))
+
 # [1.19.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.18.1...v1.19.0) (2021-10-22)
 
 
