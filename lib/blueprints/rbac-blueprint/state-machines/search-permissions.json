@@ -1,0 +1,25 @@
+{
+  "Comment": "Search Permissions",
+  "name": "Search Permissions",
+  "Version": "1.0",
+  "version": "1.0",
+  "categories": [
+    "system"
+  ],
+  "StartAt": "Search",
+  "States": {
+    "Search": {
+      "Type": "Task",
+      "Resource": "function:tymly_searchPermissions",
+      "End": true
+    }
+  },
+  "restrictions": [
+    {
+      "roleId": "tymly_rbacAdmin",
+      "allows": [
+        "*"
+      ]
+    }
+  ]
+}

@@ -11,18 +11,86 @@
       "title": "View Permissions"
     },
     {
-      "id": "permissionsTable",
-      "type": "Table",
-      "arrayPath": "data.permissions",
-      "columns": [
+      "type": "Container",
+      "spacing": "none",
+      "items": [
         {
-          "title": "State Machine Name",
-          "field": "stateMachineName"
+          "id": "stateMachine",
+          "type": "Input.Text",
+          "title": "State Machine Name"
         },
         {
-          "title": "Roles",
-          "field": "roles",
-          "format": "item.roles.join(', ')"
+          "id": "roleId",
+          "type": "Input.Text",
+          "title": "Role ID"
+        },
+        {
+          "type": "Container",
+          "spacing": "none",
+          "justifyContent": true,
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "{{ data.totalHits || 0 }} result{{ data.totalHits === 1 ? '' : 's' }}"
+            },
+            {
+              "type": "Action.ApiLookup",
+              "title": "Search",
+              "stateMachineName": "tymly_searchPermissions_1_0",
+              "input": {
+                "page": "$.page",
+                "stateMachine": "$.stateMachine",
+                "roleId": "$.roleId"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Container",
+      "spacing": "none",
+      "showWhen": "data.results && data.results.length",
+      "items": [
+        {
+          "id": "resultsTable",
+          "type": "MarkupTable",
+          "arrayPath": "data.results",
+          "columns": [
+            {
+              "title": "State Machine Name",
+              "value": "{{ item.stateMachineName }}"
+            },
+            {
+              "title": "Role ID",
+              "value": "{{ item.roleId }}"
+            },
+            {
+              "title": "Allows",
+              "value": "{{ item.allows.join(', ') }}"
+            },
+            {
+              "title": "Created",
+              "value": "{{ formatDate(item.created, 'Do MMM YYYY HH:mm') }}"
+            },
+            {
+              "title": "Modified",
+              "value": "{{ formatDate(item.modified, 'Do MMM YYYY HH:mm') }}"
+            }
+          ]
+        },
+        {
+          "type": "Pagination",
+          "page": "data.page",
+          "totalPages": "data.totalPages",
+          "endpoint": {
+            "stateMachineName": "tymly_searchPermissions_1_0",
+            "input": {
+              "page": "$.page",
+              "stateMachine": "$.stateMachine",
+              "roleId": "$.roleId"
+            }
+          }
         }
       ]
     }
