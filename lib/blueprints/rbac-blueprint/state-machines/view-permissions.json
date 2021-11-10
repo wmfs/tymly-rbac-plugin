@@ -10,7 +10,7 @@
     "user"
   ],
   "instigatorGroup": "app",
-  "StartAt": "GetData",
+  "StartAt": "AwaitingHumanInput",
   "States": {
     "GetData": {
       "Type": "Task",
