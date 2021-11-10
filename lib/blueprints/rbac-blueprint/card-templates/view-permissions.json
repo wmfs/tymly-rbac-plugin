@@ -1,0 +1,38 @@
+{
+  "templateMeta": {
+    "name": "view-permissions",
+    "title": "View Permissions",
+    "category": "system"
+  },
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "Jumbotron",
+      "title": "View Permissions"
+    },
+    {
+      "id": "permissionsTable",
+      "type": "Table",
+      "arrayPath": "data.permissions",
+      "columns": [
+        {
+          "title": "State Machine Name",
+          "field": "stateMachineName"
+        },
+        {
+          "title": "Roles",
+          "field": "roles",
+          "format": "item.roles.join(', ')"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Cancel",
+      "title": "Cancel"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.0"
+}
