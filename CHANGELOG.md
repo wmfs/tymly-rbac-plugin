@@ -1,3 +1,10 @@
+## [1.20.1](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.20.0...v1.20.1) (2021-11-11)
+
+
+### 🐛 Bug Fixes
+
+* trim input when searching for permissions ([5226256](https://github.com/wmfs/tymly-rbac-plugin/commit/5226256980a6b95b0ab5d33f34c49ad3665df3f4))
+
 # [1.20.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.19.0...v1.20.0) (2021-11-10)
 
 
