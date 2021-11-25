@@ -1,3 +1,20 @@
+# [1.21.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.20.1...v1.21.0) (2021-11-25)
+
+
+### ✨ Features
+
+* simplify searching permissions model ([3d7cdb0](https://github.com/wmfs/tymly-rbac-plugin/commit/3d7cdb000a86be38db751cd440b807fdb1dda525))
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dependency semantic-release to v18.0.1 ([64c90bd](https://github.com/wmfs/tymly-rbac-plugin/commit/64c90bd73941bc98f4bfa3cdc55e51ad488619b4))
+
+
+### ♻️ Chores
+
+* fix name of file ([a0b810e](https://github.com/wmfs/tymly-rbac-plugin/commit/a0b810e85037c9ae8ad78dd2aef3a48d56a59ffb))
+
 ## [1.20.1](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.20.0...v1.20.1) (2021-11-11)
 
 
