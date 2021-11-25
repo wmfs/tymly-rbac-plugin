@@ -6,11 +6,32 @@
   "categories": [
     "system"
   ],
-  "StartAt": "Search",
+  "StartAt": "Searching",
   "States": {
-    "Search": {
+    "Searching": {
       "Type": "Task",
-      "Resource": "function:tymly_searchPermissions",
+      "Resource": "module:storageSearch",
+      "ResourceConfig": {
+        "modelId": "tymly_permission",
+        "filter": {
+          "where": {
+            "stateMachineName": {
+              "equals": "$.stateMachine",
+              "includeNulls": false
+            },
+            "roleId": {
+              "equals": "$.roleId",
+              "includeNulls": false
+            }
+          },
+          "page": "$.page",
+          "limit": 10,
+          "orderBy": [
+            "-modified"
+          ]
+        }
+      },
+      "ResultPath": "$",
       "End": true
     }
   },
