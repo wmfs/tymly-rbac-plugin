@@ -1,3 +1,32 @@
+# [1.22.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.21.0...v1.22.0) (2022-04-05)
+
+
+### ✨ Features
+
+* further use of logger ([77c4434](https://github.com/wmfs/tymly-rbac-plugin/commit/77c44342fe34dd405a0b6d3a44e9eff122dc6747))
+
+
+### 🐛 Bug Fixes
+
+* update to use logger instead of console logs ([46925ee](https://github.com/wmfs/tymly-rbac-plugin/commit/46925ee47c86b3ef90a5b8e2831691104b291a8c))
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dependency [@semantic-release](https://github.com/semantic-release)/exec to v6.0.3 ([937bb73](https://github.com/wmfs/tymly-rbac-plugin/commit/937bb730c80f2bd0c50e55fed71d642ed365a6b8))
+* **deps-dev:** update dependency chai to v4.3.5 ([76ba755](https://github.com/wmfs/tymly-rbac-plugin/commit/76ba7555dbd74768933894fe31a2b04c2d5c1331))
+* **deps-dev:** update dependency chai to v4.3.6 ([7178e33](https://github.com/wmfs/tymly-rbac-plugin/commit/7178e33635274a077bd1a116fc0b4e3017952558))
+* **deps-dev:** update dependency mocha to v9.1.4 ([c02fca7](https://github.com/wmfs/tymly-rbac-plugin/commit/c02fca7c918832188642661652c4b54fc656053c))
+* **deps-dev:** update dependency mocha to v9.2.0 ([21fb57d](https://github.com/wmfs/tymly-rbac-plugin/commit/21fb57da948d5f7c63edb34f7abf179de7130e33))
+* **deps-dev:** update dependency mocha to v9.2.1 ([97eee89](https://github.com/wmfs/tymly-rbac-plugin/commit/97eee89505a60d00eabf39a4cf1b99bda490d1e3))
+* **deps-dev:** update dependency mocha to v9.2.2 ([aa71227](https://github.com/wmfs/tymly-rbac-plugin/commit/aa71227f845ac8018b242ef6612342f6c4f41e8f))
+* **deps-dev:** update dependency semantic-release to v19 ([78afbb6](https://github.com/wmfs/tymly-rbac-plugin/commit/78afbb6801f10107629236c11967975fac093278))
+
+
+### 🚨 Tests
+
+* update expected permissions because of updated tymly core dep ([33030f9](https://github.com/wmfs/tymly-rbac-plugin/commit/33030f9e0595a1e683369289aa62d282da0cfdbe))
+
 # [1.21.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.20.1...v1.21.0) (2021-11-25)
 
 
