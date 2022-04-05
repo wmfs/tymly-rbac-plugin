@@ -44,6 +44,9 @@ describe('RBAC Permissions State Machine', function () {
       tymly_searchPermissions_1_0: {
         '*': ['tymly_rbacAdmin']
       },
+      tymly_setClientMetaData_1_0: {
+        '*': ['$authenticated']
+      },
       tymly_viewPermissions_1_0: {
         '*': ['tymly_rbacAdmin']
       }
