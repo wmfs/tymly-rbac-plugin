@@ -1,3 +1,10 @@
+# [1.25.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.24.0...v1.25.0) (2023-03-13)
+
+
+### 🛠 Builds
+
+* **deps:** update dependency [@wmfs](https://github.com/wmfs)/rbac to v1.8.0 ([bdfdaa7](https://github.com/wmfs/tymly-rbac-plugin/commit/bdfdaa76be744a946575a2f3ddf3c50f9d4983c2))
+
 # [1.24.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.23.0...v1.24.0) (2023-03-13)
 
 
