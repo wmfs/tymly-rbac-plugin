@@ -1,3 +1,24 @@
+# [1.24.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.23.0...v1.24.0) (2023-03-13)
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dependency [@semantic-release](https://github.com/semantic-release)/changelog to v6.0.2 ([56740fa](https://github.com/wmfs/tymly-rbac-plugin/commit/56740fafa8efa95ee88c233c07ec44483df25ea5))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly to v1.246.0 ([2e88ce8](https://github.com/wmfs/tymly-rbac-plugin/commit/2e88ce8f2d92fe9da9bf3212d17cfd2b42bb4cde))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly to v1.247.0 ([7863de4](https://github.com/wmfs/tymly-rbac-plugin/commit/7863de42b797b5aabefafd0e02386ede1f1945de))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly to v1.247.1 ([c425020](https://github.com/wmfs/tymly-rbac-plugin/commit/c42502001ed4a6e2ece2f727c01836ca5d2cc40f))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly to v1.248.0 ([cb2a54a](https://github.com/wmfs/tymly-rbac-plugin/commit/cb2a54a7d2dbc06233c5387a842b514222b00e13))
+* **deps-dev:** update dependency chai to v4.3.7 ([7cf00dc](https://github.com/wmfs/tymly-rbac-plugin/commit/7cf00dcb3bebeaab3b885fae26bce84233bfdf38))
+* **deps-dev:** update dependency mocha to v10.2.0 ([56c51ad](https://github.com/wmfs/tymly-rbac-plugin/commit/56c51adb2180c080d67959e170fe3886c2056e6e))
+* **deps-dev:** update dependency semantic-release to v20 ([f1aa0c2](https://github.com/wmfs/tymly-rbac-plugin/commit/f1aa0c216dc85993cb94e0e7793487fc35da9652))
+* **deps-dev:** update dependency semantic-release to v20.0.1 ([42ac988](https://github.com/wmfs/tymly-rbac-plugin/commit/42ac9887102328a03856adfd8743a3f7bf0141c9))
+* **deps-dev:** update dependency semantic-release to v20.0.2 ([718ae91](https://github.com/wmfs/tymly-rbac-plugin/commit/718ae91ea097e0e98b718f3b453a0d0ccc50cfe2))
+* **deps-dev:** update dependency semantic-release to v20.0.3 ([c4ecec8](https://github.com/wmfs/tymly-rbac-plugin/commit/c4ecec883311c5807a91901fda117a5340561f66))
+* **deps-dev:** update dependency semantic-release to v20.0.4 ([9fb2131](https://github.com/wmfs/tymly-rbac-plugin/commit/9fb2131b04cb4dba07a39d1dde18399841926050))
+* **deps-dev:** update dependency semantic-release to v20.1.0 ([59c42c5](https://github.com/wmfs/tymly-rbac-plugin/commit/59c42c585070b90b63f4ae3dd483c519039a60ef))
+* **deps-dev:** update dependency semantic-release to v20.1.1 ([5329757](https://github.com/wmfs/tymly-rbac-plugin/commit/53297574965a8b4cde95190df0eaa1047cf7512c))
+* **deps:** update dependency dottie to v2.0.3 ([e75d353](https://github.com/wmfs/tymly-rbac-plugin/commit/e75d353b25a090da8aec941d34529f79ca757900))
+
 # [1.23.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.22.1...v1.23.0) (2022-11-02)
 
 
