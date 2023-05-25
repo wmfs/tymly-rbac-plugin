@@ -4,15 +4,6 @@
     "title": "Grant Role Membership",
     "category": "system"
   },
-  "hooks": {
-    "afterSubmit": {
-      "actions": [
-        {
-          "type": "Action.RefreshRemit"
-        }
-      ]
-    }
-  },
   "type": "AdaptiveCard",
   "body": [
     {
@@ -70,6 +61,15 @@
       "title": "Submit"
     }
   ],
-  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "hooks": {
+    "afterSubmit": {
+      "actions": [
+        {
+          "type": "Action.RefreshRemit"
+        }
+      ]
+    }
+  },
+  "$schema": "https://raw.githubusercontent.com/wmfs/cardscript-schema/master/lib/schema.json",
   "version": "1.0"
 }
