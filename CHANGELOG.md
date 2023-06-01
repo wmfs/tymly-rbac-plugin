@@ -1,3 +1,25 @@
+# [1.26.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.25.0...v1.26.0) (2023-06-01)
+
+
+### ✨ Features
+
+* updated schema for cardscript files ([059e428](https://github.com/wmfs/tymly-rbac-plugin/commit/059e4284c038f2c11ff6fd453dc14b109ed24a95))
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dependency [@semantic-release](https://github.com/semantic-release)/changelog to v6.0.3 ([83ee861](https://github.com/wmfs/tymly-rbac-plugin/commit/83ee86167982c65b4a50e441310e4ef8de46468d))
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly to v1.256.0 ([2d58809](https://github.com/wmfs/tymly-rbac-plugin/commit/2d58809fbc971c574d5b4c5cbf5ce04a98c523d1))
+* **deps-dev:** update dependency semantic-release to v20.1.3 ([37b2915](https://github.com/wmfs/tymly-rbac-plugin/commit/37b2915df7a8c63fc0210b0db17112ad5cfabd6e))
+* **deps-dev:** update dependency semantic-release to v21 ([22590dc](https://github.com/wmfs/tymly-rbac-plugin/commit/22590dce79b34fbdc589ad8ec0ce06961976506d))
+* **deps-dev:** update dependency semantic-release to v21.0.1 ([acce7ce](https://github.com/wmfs/tymly-rbac-plugin/commit/acce7ce19670eb8cbee6449f63c5c0ea29c264d9))
+* **deps-dev:** update dependency semantic-release to v21.0.2 ([33193cb](https://github.com/wmfs/tymly-rbac-plugin/commit/33193cb4b0a167cb837677481b55a29c7755776f))
+
+
+### 💎 Styles
+
+* fixing standard issues ([17aecb1](https://github.com/wmfs/tymly-rbac-plugin/commit/17aecb12bb091baa6a4bbc21ba6fbbcbad1751d7))
+
 # [1.25.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.24.0...v1.25.0) (2023-03-13)
 
 
