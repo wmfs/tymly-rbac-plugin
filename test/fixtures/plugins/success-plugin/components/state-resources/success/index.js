@@ -1,4 +1,3 @@
-
 class Success {
   run (event, context) {
     context.sendTaskSuccess('Yes boys!')

@@ -1,4 +1,3 @@
-
 class AwaitingHumanInput {
   run (event, context) {
     context.sendTaskSuccess()
