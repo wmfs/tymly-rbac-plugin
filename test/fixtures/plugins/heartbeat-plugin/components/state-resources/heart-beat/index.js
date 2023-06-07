@@ -1,4 +1,3 @@
-
 class Heartbeat {
   async run (event, context) {
     const heartbeat = {
