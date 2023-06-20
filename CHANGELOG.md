@@ -1,3 +1,11 @@
+# [1.28.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.27.0...v1.28.0) (2023-06-20)
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly to v1.258.0 ([c574f6f](https://github.com/wmfs/tymly-rbac-plugin/commit/c574f6f2ec2b5bdc4780da28f46826fc571644d2))
+* **deps:** update dependency dottie to v2.0.6 ([ac204a0](https://github.com/wmfs/tymly-rbac-plugin/commit/ac204a0686cc9dc819f2eabd772910f0cb04828e))
+
 # [1.27.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.26.0...v1.27.0) (2023-06-20)
 
 
