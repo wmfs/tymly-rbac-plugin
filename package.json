@@ -20,7 +20,7 @@
   "main": "./lib/index.js",
   "dependencies": {
     "@wmfs/rbac": "1.8.0",
-    "dottie": "2.0.4"
+    "dottie": "2.0.6"
   },
   "devDependencies": {
     "@semantic-release/changelog": "6.0.3",
