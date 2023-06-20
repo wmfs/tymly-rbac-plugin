@@ -1,3 +1,18 @@
+# [1.27.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.26.0...v1.27.0) (2023-06-20)
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dependency semantic-release to v21.0.3 ([be483ef](https://github.com/wmfs/tymly-rbac-plugin/commit/be483ef560d1d7b70f3e34a6769ae605d2fef15a))
+* **deps-dev:** update dependency semantic-release to v21.0.5 ([307c332](https://github.com/wmfs/tymly-rbac-plugin/commit/307c3322792ebc4f6d6725588e74292a49677e14))
+* **deps-dev:** update dependency standard to v17.1.0 ([a0b0f66](https://github.com/wmfs/tymly-rbac-plugin/commit/a0b0f66533e9084734267242837564eac0615ab7))
+* **deps:** update dependency dottie to v2.0.4 [security] ([7a87ed1](https://github.com/wmfs/tymly-rbac-plugin/commit/7a87ed141ae66b0768d43f72bb1e2a921afa7d55))
+
+
+### 📦 Code Refactoring
+
+* standard code styling ([b7a60d6](https://github.com/wmfs/tymly-rbac-plugin/commit/b7a60d685e7a98d1e2f1451d99a4ce76ec62e6bf))
+
 # [1.26.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.25.0...v1.26.0) (2023-06-01)
 
 
