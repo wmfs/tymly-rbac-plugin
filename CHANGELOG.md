@@ -1,3 +1,17 @@
+# [1.30.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.29.0...v1.30.0) (2023-09-19)
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dependency [@wmfs](https://github.com/wmfs)/tymly to v1.261.0 ([0077b1d](https://github.com/wmfs/tymly-rbac-plugin/commit/0077b1d39f4e0ea20a1df595a0d0dfa79036b5a8))
+* **deps-dev:** update dependency chai to v4.3.8 ([38e7aff](https://github.com/wmfs/tymly-rbac-plugin/commit/38e7affd83ad5c7265453500a93c903905a73aae))
+* **deps-dev:** update dependency semantic-release to v21.0.9 ([77d702f](https://github.com/wmfs/tymly-rbac-plugin/commit/77d702f30e703acfdf6254f44dd7bbd56f33dcd7))
+* **deps-dev:** update dependency semantic-release to v21.1.0 ([13dfe15](https://github.com/wmfs/tymly-rbac-plugin/commit/13dfe15ba0fe7fd35b1809d2377903128ce48f1a))
+* **deps-dev:** update dependency semantic-release to v21.1.1 ([8300570](https://github.com/wmfs/tymly-rbac-plugin/commit/830057012e4de292c75fd5069f4205bf883bab5f))
+* **deps-dev:** update dependency semantic-release to v21.1.2 ([3233c64](https://github.com/wmfs/tymly-rbac-plugin/commit/3233c643c4f011767b0bb65074f6b334754a75a0))
+* **deps-dev:** update dependency semantic-release to v22 ([1e239af](https://github.com/wmfs/tymly-rbac-plugin/commit/1e239af3c0c26263c788b8df66e0d5d12aad9f84))
+* **deps:** revert semantic-release ([0e1fabb](https://github.com/wmfs/tymly-rbac-plugin/commit/0e1fabba9324e203c68c387ae6202f6f437ab9e3))
+
 # [1.29.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.28.0...v1.29.0) (2023-07-26)
 
 
