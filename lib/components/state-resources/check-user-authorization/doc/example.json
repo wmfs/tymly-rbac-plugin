@@ -1,0 +1,12 @@
+{
+  "Check": {
+    "Type": "Task",
+    "Parameters": {
+      "resourceType": "stateMachine",
+      "resourceName": "tymlyTest_admin_1_0",
+      "action": "create"
+    },
+    "Resource": "module:checkUserAuthorization",
+    "End": true
+  }
+}
