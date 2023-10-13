@@ -1,0 +1,4 @@
+This document specifies a JSON object called a "User Authorization Check".
+A Permission Grant MUST have a string field named "resourceType".
+A Permission Grant MUST have a string field named "resourceName".
+A Permission Grant MUST have a string field named "action".
