@@ -1,3 +1,21 @@
+# [1.31.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.30.0...v1.31.0) (2023-10-16)
+
+
+### ✨ Features
+
+* Create a state resource for the check authorization [sc-21092] ([48f349b](https://github.com/wmfs/tymly-rbac-plugin/commit/48f349b197b3737e1ca3a3c8b60f380c70373da9))
+
+
+### 🐛 Bug Fixes
+
+* update parameters to include ctx and update tests to cover state resource usage ([1269b0c](https://github.com/wmfs/tymly-rbac-plugin/commit/1269b0c2ee6d30c1a7bab7e3679b8ee631cfb848))
+
+
+### 🛠 Builds
+
+* **deps-dev:** update dependency chai to v4.3.10 ([2540bf2](https://github.com/wmfs/tymly-rbac-plugin/commit/2540bf232da75061ecbb473694ee641d218335d1))
+* **deps-dev:** update dependency chai to v4.3.9 ([bf20fac](https://github.com/wmfs/tymly-rbac-plugin/commit/bf20fac1976accd14f67388a24f7a2f288e27252))
+
 # [1.30.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.29.0...v1.30.0) (2023-09-19)
 
 
