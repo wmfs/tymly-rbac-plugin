@@ -3,8 +3,11 @@
     "Type": "Task",
     "Parameters": {
       "resourceType": "stateMachine",
-      "resourceName": "tymlyTest_admin_1_0",
-      "action": "create"
+      "resourceName": "tymlyTest_updatePost_1_0",
+      "action": "create",
+      "ctx": {
+        "userId": "molly"
+      }
     },
     "Resource": "module:checkUserAuthorization",
     "End": true

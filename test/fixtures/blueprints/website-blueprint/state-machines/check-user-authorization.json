@@ -1,0 +1,20 @@
+{
+  "Comment": "Check user authorization",
+  "version": "1.0",
+  "StartAt": "Success",
+  "States": {
+    "Success": {
+      "Type": "Task",
+      "Resource": "module:checkUserAuthorization",
+      "End": true
+    }
+  },
+  "restrictions": [
+    {
+      "roleId": "$everyone",
+      "allows": [
+        "*"
+      ]
+    }
+  ]
+}
