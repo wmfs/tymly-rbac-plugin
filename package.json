@@ -28,7 +28,7 @@
     "@semantic-release/git": "10.0.1",
     "@semantic-release/exec": "7.1.0",
     "@wmfs/tymly": "1.317.0",
-    "chai": "4.5.0",
+    "chai": "6.2.2",
     "chai-as-promised": "7.1.2",
     "codecov": "3.8.3",
     "conventional-changelog-conventionalcommits": "9.2.0",
