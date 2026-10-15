@@ -1,3 +1,5 @@
+## [1.34.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.33.1...v1.34.0) (2026-10-15)
+
 ## [1.33.1](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.33.0...v1.33.1) (2026-08-13)
 
 ## [1.33.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.32.0...v1.33.0) (2025-11-25)
