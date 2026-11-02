@@ -1,3 +1,10 @@
+## [1.36.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.35.0...v1.36.0) (2026-11-02)
+
+### Build system dependencies :hammer:
+
+* **deps-dev:** fix conventionalcommit versions [sc-34125] ([3771ca7](https://github.com/wmfs/tymly-rbac-plugin/commit/3771ca781b4cd7389b1e245c79e3857ab3d559ed))
+* **deps:** update [@wmfs](https://github.com/wmfs) packages ([#554](https://github.com/wmfs/tymly-rbac-plugin/issues/554)) ([066b879](https://github.com/wmfs/tymly-rbac-plugin/commit/066b8792670d77e9426f528dc8e2a1aa23cb1134))
+
 ## [1.35.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.34.0...v1.35.0) (2026-10-26)
 
 ## [1.34.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.33.1...v1.34.0) (2026-10-15)
