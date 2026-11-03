@@ -1,3 +1,9 @@
+## [1.37.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.36.0...v1.37.0) (2026-11-03)
+
+### Build system dependencies :hammer:
+
+* **deps:** update [@wmfs](https://github.com/wmfs) packages ([#556](https://github.com/wmfs/tymly-rbac-plugin/issues/556)) ([0a24673](https://github.com/wmfs/tymly-rbac-plugin/commit/0a246736186d6f9933b1c07d8d87ae92204b2306))
+
 ## [1.36.0](https://github.com/wmfs/tymly-rbac-plugin/compare/v1.35.0...v1.36.0) (2026-11-02)
 
 ### Build system dependencies :hammer:
