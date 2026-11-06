@@ -2,7 +2,7 @@
 
 const chai = require('chai')
 chai.use(require('dirty-chai'))
-chai.use(require('chai-as-promised'))
+chai.use(require('chai-as-promised').default) // chai-as-promised 8 is ESM-only
 
 const expect = chai.expect
 const tymly = require('@wmfs/tymly')
